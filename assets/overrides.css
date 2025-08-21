@@ -123,6 +123,10 @@
   margin: 0;
 }
 
+.price-item {
+  font-weight: 700;
+}
+
 .template-product .price__pricing-group {
   flex-direction: column !important;
   align-items: flex-start !important;
