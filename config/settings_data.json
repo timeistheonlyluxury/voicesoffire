@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
     "color_sale_text": "#ef3340",
@@ -23,33 +32,20 @@
         "type": "header",
         "settings": {
           "align_logo": "center",
-          "logo": "",
-          "logo_max_width": 200,
+          "logo": "shopify://shop_images/vof_logob_2025.png",
+          "logo_max_width": 250,
           "enable_countdown": false,
           "countdown_zone": "store_time",
           "countdown_time": "Mar 10, 2022 12:00:00",
+          "message_text_dos": "Available Until",
           "main_linklist": "",
           "message": false,
           "home_page_only": true,
           "message_text": "LOREM IPSUM DOLOR.",
+          "message_subtext": "",
           "message_link": "",
-          "message_text_dos": "Available Until",
           "color_bg": "#ffffff",
           "color_text": "#000000"
-        }
-      },
-      "hero-1": {
-        "type": "hero",
-        "disabled": true,
-        "settings": {
-          "alignment": "center",
-          "hero_layout": "full_width",
-          "hero_size": "small",
-          "text_size": "medium",
-          "title": "NULL",
-          "text": "",
-          "button_label": "",
-          "button_link": ""
         }
       },
       "feature-row": {
@@ -65,7 +61,6 @@
       },
       "feature-columns": {
         "type": "feature-columns",
-        "disabled": true,
         "blocks": {
           "feature-columns-0": {
             "type": "text_block",
@@ -103,6 +98,7 @@
           "feature-columns-1",
           "feature-columns-2"
         ],
+        "disabled": true,
         "settings": {
           "title": "",
           "align_text": "left"
@@ -115,28 +111,15 @@
           "title": "",
           "collection": "hoodies",
           "grid": 3,
+          "mobile_grid": 1,
           "rows": 5,
           "show_vendor": false,
-          "show_view_all": false
-        }
-      },
-      "hero-2": {
-        "type": "hero",
-        "disabled": true,
-        "settings": {
-          "alignment": "center",
-          "hero_layout": "full_width",
-          "hero_size": "medium",
-          "text_size": "large",
-          "title": "Image with text overlay",
-          "text": "<p>Use overlay text to give your customers insight into your brand. Select imagery and text that relates to your style and story.</p>",
-          "button_label": "",
-          "button_link": ""
+          "show_view_all": false,
+          "center_last_row": true
         }
       },
       "quotes": {
         "type": "quotes",
-        "disabled": true,
         "blocks": {
           "quotes-0": {
             "type": "quote",
@@ -165,13 +148,13 @@
           "quotes-1",
           "quotes-2"
         ],
+        "disabled": true,
         "settings": {
           "title": ""
         }
       },
       "image-bar": {
         "type": "image-bar",
-        "disabled": true,
         "blocks": {
           "image-bar-0": {
             "type": "image",
@@ -185,6 +168,7 @@
         "block_order": [
           "image-bar-0"
         ],
+        "disabled": true,
         "settings": {
           "section_height": "medium"
         }
@@ -209,26 +193,6 @@
           "color_footer_text": "#333232",
           "show_locale_selector": false,
           "show_currency_selector": false
-        }
-      },
-      "161723551108bb4401": {
-        "type": "image-bar",
-        "disabled": true,
-        "blocks": {
-          "161723551108bb4401-0": {
-            "type": "image",
-            "settings": {
-              "alignment": "center",
-              "link": "",
-              "cta_label": ""
-            }
-          }
-        },
-        "block_order": [
-          "161723551108bb4401-0"
-        ],
-        "settings": {
-          "section_height": "small"
         }
       },
       "product-template": {
@@ -300,18 +264,6 @@
           "tags_enable": true
         }
       },
-      "1623181466cca75a71": {
-        "type": "collection",
-        "disabled": true,
-        "settings": {
-          "title": "",
-          "collection": "",
-          "grid": 3,
-          "rows": 4,
-          "show_vendor": false,
-          "show_view_all": false
-        }
-      },
       "1623181558165b9230": {
         "type": "rich-text",
         "disabled": true,
@@ -327,10 +279,12 @@
         "settings": {
           "title": "",
           "collection": "frontpage",
-          "grid": 3,
+          "grid": 2,
+          "mobile_grid": 1,
           "rows": 5,
           "show_vendor": false,
-          "show_view_all": false
+          "show_view_all": false,
+          "center_last_row": true
         }
       },
       "cart-template": {
@@ -345,23 +299,7 @@
       "1623859689008f58c0",
       "collection",
       "1623181558165b9230"
-    ],
-    "blocks": {
-      "15885745614559378752": {
-        "type": "shopify://apps/accessibly/blocks/app-embed/4b59303e-1141-4c8a-945f-bf4adb516864",
-        "disabled": false,
-        "settings": {
-          "themeColor": "#000000",
-          "iconColor": "#000000",
-          "showLogo": false,
-          "topBottomPosition": 15,
-          "rightLeftPosition": 15,
-          "iconSize": "custom",
-          "iconCustomSize": 55,
-          "position": "bottom-left"
-        }
-      }
-    }
+    ]
   },
   "presets": {
     "Default": {
