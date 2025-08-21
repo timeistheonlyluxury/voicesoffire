@@ -1,0 +1,168 @@
+<div class="page-width">
+  {% if section.settings.section_logo != blank %}
+    {%- assign img_url = section.settings.section_logo | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+    <div class="section-logo">
+      <img
+        class="lazyload js"
+        src="{{ section.settings.section_logo | img_url: '300x300' }}"
+        data-src="{{ img_url }}"
+        data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+        data-aspectratio="3.0"
+        data-sizes="auto"
+      >
+    </div>
+  {% endif %}
+  {% if section.settings.title != blank %}
+    <div class="text-center section-header">
+      <h2>{{ section.settings.title | escape }}</h2>
+    </div>
+  {% endif %}
+  {% if section.settings.message %}
+    <p style="text-transform: uppercase; font-size: 10px; font-weight: 500; margin-bottom: -3em;">
+      {{ section.settings.message_text_dos }}
+    </p>
+  {% endif %}
+
+  {%- assign collection = collections[section.settings.collection] -%}
+
+  {% case section.settings.grid %}
+    {% when 2 %}
+      {%- assign max_height = 530 -%}
+      {%- assign grid_item_width = 'medium-up--one-half' -%}
+    {% when 3 %}
+      {%- assign max_height = 345 -%}
+      {%- assign grid_item_width = 'small--one-half medium-up--one-third' -%}
+    {% when 4 %}
+      {%- assign max_height = 350 -%}
+      {%- assign grid_item_width = 'small--one-half medium-up--one-quarter' -%}
+    {% when 5 %}
+      {%- assign max_height = 195 -%}
+      {%- assign grid_item_width = 'small--one-half medium-up--one-fifth' -%}
+  {% endcase %}
+
+  {% case section.settings.mobile_grid %}
+    {% when 1 %}
+      {%- assign grid_item_mobile_width = '' -%}
+    {% when 2 %}
+      {%- assign grid_item_mobile_width = 'or-small--one-half' -%}
+  {% endcase %}
+
+  {%- assign product_limit = 50 -%}
+
+  <ul class="grid grid--uniform grid--view-items">
+    {% for product in collection.products limit: product_limit %}
+      {% assign index_for_centering = collection.products.size | modulo: section.settings.grid %}
+      {% assign mobile_index = collection.products.size | modulo: section.settings.mobile_grid %}
+      {% assign last_row_difference = section.settings.grid | minus: index_for_centering %}
+      {% assign padding_percentage = last_row_difference
+        | times: 100.0
+        | divided_by: section.settings.grid
+        | divided_by: 2.0
+      %}
+      <li
+        class="grid__item grid__item--collection {{ grid_item_mobile_width }} {{ grid_item_width }} {%- if section.settings.mobile_grid == 2 and mobile_index == 1 and forloop.last and section.settings.center_last_row %} or-small--centered {%- endif %} {%- if section.settings.center_last_row and forloop.rindex == index_for_centering %} grid__item--collection-centered {%- endif %}"
+        {%- if section.settings.center_last_row and forloop.rindex == index_for_centering %}
+          style="margin-left: {{ padding_percentage }}%"
+        {%- endif %}
+      >
+        {% include 'product-card-grid',
+          max_height: max_height,
+          product: product,
+          show_vendor: section.settings.show_vendor
+        %}
+      </li>
+    {% else %}
+      <div style="width: 100%; height: 60vh;"></div>
+    {% endfor %}
+  </ul>
+
+  {% if section.settings.show_view_all %}
+    <hr class="hr--invisible" aria-hidden="true">
+    <div class="text-center">
+      <a
+        href="{{ collection.url }}"
+        class="btn"
+        aria-label="{{ 'collections.general.view_all_label' | t: collection_name: collection.title }}"
+      >
+        {{ 'collections.general.view_all' | t }}
+      </a>
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Featured collection",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "section_logo",
+      "label": "Section Logo"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Featured collection"
+    },
+    {
+      "id": "collection",
+      "type": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "grid",
+      "label": "Products per row",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "mobile_grid",
+      "label": "Mobile Products per row",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "default": 1,
+      "info": "3 does not work, use 2"
+    },
+    {
+      "type": "range",
+      "id": "rows",
+      "label": "Rows",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "Show product vendors",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show 'View all' button",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "center_last_row",
+      "label": "Center Last Row",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured collection",
+      "category": "Collection"
+    }
+  ]
+}
+{% endschema %}

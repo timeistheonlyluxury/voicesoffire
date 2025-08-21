@@ -1,0 +1,10 @@
+# package manager
+package.json
+yarn.lock
+
+# dependency files
+node_modules/
+
+# css compilation
+postcss.config.json
+tailwind.config.json

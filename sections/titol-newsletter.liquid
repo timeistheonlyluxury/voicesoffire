@@ -1,0 +1,156 @@
+<style>
+  .index-newsletter form{
+    border: 3px {{ section.settings.border_type }} {{ section.settings.border_color }};
+    border-radius: {{ section.settings.border_radius }}px;
+  }
+</style>
+
+<div class="index-newsletter">
+  {% form 'customer', class: '' %}
+    <div class="index-newsletter-title">{{ section.settings.heading }}</div>
+    <div class="index-newsletter-subtitle">{{ section.settings.subheading }}</div>
+    {% if form.posted_successfully? %}
+      <div class="">{{ section.settings.success }}</div>
+    {% else %}
+      {% comment %} <div class="flex-none">NEWSLETTER</div> {% endcomment %}
+      <input type="hidden" class="hidden" name="contact[tags]" value="newsletter, index">
+      <div class="index-newsletter-input-container">
+        <input
+          type="email"
+          name="contact[email]"
+          id="Email"
+          class="btn--secondary-accent index-newsletter-input"
+          value=""
+          placeholder="{{ section.settings.placeholder }}"
+          autocorrect="off"
+          autocapitalize="off"
+          required
+        >
+        <button
+          type="submit"
+          class="btn btn--secondary-accent"
+          name="commit"
+          id="Subscribe"
+        >
+          {{- section.settings.button -}}
+        </button>
+      </div>
+    {% endif %}
+  {% endform %}
+</div>
+
+{%- schema -%}
+{
+  "name": "Newsletter Signup",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading"
+    },
+    {
+      "type": "text",
+      "id": "button",
+      "label": "Button"
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Placeholder"
+    },
+    {
+      "type": "text",
+      "id": "success",
+      "label": "Success"
+    },
+    {
+      "type": "text",
+      "id": "error",
+      "label": "Error"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border Radius",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "select",
+      "id": "border_type",
+      "label": "Border Type",
+      "default": "solid",
+      "options": [
+        {
+          "value": "solid",
+          "label": "Solid"
+        },
+        {
+          "value": "dashed",
+          "label": "Dashed"
+        },
+        {
+          "value": "dotted",
+          "label": "Dotted"
+        },
+        {
+          "value": "double",
+          "label": "Double"
+        },
+        {
+          "value": "groove",
+          "label": "Groove"
+        },
+        {
+          "value": "ridge",
+          "label": "Ridge"
+        },
+        {
+          "value": "inset",
+          "label": "Inset"
+        },
+        {
+          "value": "outset",
+          "label": "Outset"
+        },
+        {
+          "value": "none",
+          "label": "None"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter Signup",
+      "settings": {
+        "heading": "Sign up for our newsletter",
+        "subheading": "Get the latest news and special offers",
+        "button": "Subscribe",
+        "placeholder": "Enter your email address",
+        "success": "Thanks for subscribing!",
+        "error": "Please enter a valid email address",
+        "border_color": "#000000",
+        "border_radius": 0,
+        "border_type": "solid"
+      }
+    }
+  ],
+  "enabled_on": {
+    "templates": ["index"]
+  }
+}
+{%- endschema -%}

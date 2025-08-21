@@ -1,0 +1,95 @@
+<style>
+  
+.background-video {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.background-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 749px) {
+  .background-video-desktop {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 750px) {
+  .background-video-mobile {
+    display: none;
+  }
+}
+</style>
+
+{% if settings.video_background_mobile or settings.video_background %}
+  {% if settings.video_background_mobile %}
+    <div class="background-video background-video-mobile">
+      <video
+        poster="{{ settings.video_background_mobile.preview_image | image_url: width: 480 }}"
+        playsinline
+        muted
+        loop
+        autoplay
+      >
+        {%- for source in settings.video_background_mobile.sources -%}
+          <source src="{{ source.url }}" type="{{ source.mime_type }}">
+        {%- endfor -%}
+      </video>
+    </div>
+    <div class="background-video background-video-desktop">
+      <video
+        poster="{{ settings.video_background.preview_image | image_url: width: 1080 }}"
+        playsinline
+        muted
+        loop
+        autoplay
+      >
+        {%- for source in settings.video_background.sources -%}
+          <source src="{{ source.url }}" type="{{ source.mime_type }}">
+        {%- endfor -%}
+      </video>
+    </div>
+  {% elsif settings.video_background %}
+    <div class="background-video">
+      <video
+        poster="{{ settings.video_background.preview_image | image_url: width: 1080 }}"
+        playsinline
+        muted
+        loop
+        autoplay
+      >
+        {%- for source in settings.video_background.sources -%}
+          <source src="{{ source.url }}" type="{{ source.mime_type }}">
+        {%- endfor -%}
+      </video>
+    </div>
+  {% endif %}
+{%- elsif settings.background_image -%}
+  <div
+    id="bgimage"
+    style="
+      background:
+      url(&quot;{{ settings.background_image | image_url: width: 1600 }}&quot;)
+      center
+      center
+      no-repeat;
+      background-size: cover;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    "
+  ></div>
+{% endif %}

@@ -1,0 +1,74 @@
+<style>
+    #inventory {
+        margin-bottom:4em;
+    }
+    #inventory h3 {
+        margin-bottom: .5em;
+    }
+    .inventory-bar{
+        background:#eeeeee;
+        width:100%;
+        border-radius: 30px;
+        overflow: hidden;
+    }
+    .filler {
+        background: rgb(129,38,180);
+        background: linear-gradient(130deg, rgba(231,63,139,1) 0%, rgba(129,38,180,1) 100%);    text-align: center;
+        text-indent: 5px;
+        color: white;
+        font-size: .75em;
+    }
+
+    #powered {
+        display: flex;
+        justify-content: end;
+    }
+
+    .by {
+        font-size: .75em;
+        font-weight: bolder;
+        letter-spacing: 0;
+    }
+</style>
+
+{% for variant in product.variants %}
+    {% if variant.metafields.single_nft['is_nft'] == 'true' %}
+        {% assign available = variant.inventory_quantity %}
+        {% assign total_inventory = variant.metafields.single_nft['product_supply'] %}
+    {% endif %}
+{% endfor %}
+{% assign claimed_count = total_inventory | minus: available %}
+{% assign denom = total_inventory | times: 1.0 %}
+{% assign bar_width = claimed_count | divided_by: denom | times: 100 | round: 2 %}
+
+{% if total_inventory > 0 %}
+
+    <div id="inventory">
+        <h3>{{ available }} of {{ total_inventory }} available</h3>
+        {% for variant in product.variants %}
+            <div class="inventory-item">
+                <div class="inventory-bar">
+                    <div class="filler">
+                        <span>{{ bar_width }}%</span>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    {% if variant.inventory_quantity == 0 %}
+        <style>
+            .filler {
+                background: none;
+                color: black;
+            }
+        </style>
+    {% else %}
+        <style>
+            .filler {
+                width: {{ bar_width }}%;
+            }
+        </style>
+    {% endif %}
+
+{% endif %}

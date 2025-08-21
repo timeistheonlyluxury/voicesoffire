@@ -1,0 +1,20 @@
+/*!
+ * 
+ * Copyright (C) 2020, Bitmovin, Inc., All Rights Reserved
+ * 
+ * This source code and its use and distribution, is subject to the terms
+ * and conditions of the applicable license agreement.
+ * 
+ * bitmovin-analytics version v2.18.0
+ * 
+ */
+
+/*!
+ * @overview es6-promise - a tiny implementation of Promises/A+.
+ * @copyright Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors (Conversion to ES6 API by Jake Archibald)
+ * @license   Licensed under MIT license
+ *            See https://raw.githubusercontent.com/jakearchibald/es6-promise/master/LICENSE
+ * @version   2.3.0
+ */
+
+/*! codem-isoboxer v0.2.1 https://github.com/madebyhiro/codem-isoboxer/blob/master/LICENSE.txt */

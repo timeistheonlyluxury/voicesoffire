@@ -1,0 +1,199 @@
+<style>
+  .countdown-wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .countdown-timer p {
+    text-align: center;
+    font-size: 10px;
+    margin-top: 0px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .countdown-timer {
+    margin: auto;
+    display: table;
+    margin-top: 20px;
+  }
+  .count-days,
+  .count-hours,
+  .count-minute,
+  .count-sec {
+    font-size: 21px !important;
+    font-weight: 900;
+    background-color: transparent;
+    padding: 10px;
+    margin-bottom: -0.2em;
+  }
+
+  .countdown-1,
+  .countdown-2,
+  .countdown-3,
+  .countdown-4 {
+    width: 50px;
+    display: table-cell;
+    padding: 15px;
+    /*     background-color: #F3F8EE; */
+  }
+  .grid--table > .grid__item {
+    display: table-cell;
+    vertical-align: middle;
+    float: left;
+  }
+</style>
+
+{% if section.settings.home_page_only == false or template == 'index' %}
+  {% if section.settings.enabled %}
+    {% assign time = section.settings.countdown_time %}
+    <script>
+      {% if section.settings.countdown_zone == 'store_time' %}
+      var timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      {% endif %}
+      // Set the date we're counting down to
+      var countDownDate = new Date('{{time}}').getTime();
+
+      // Update the count down every 1 second
+      var x = setInterval(function() {
+
+        // Get today's date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        {% if section.settings.countdown_zone == 'store_time' %}
+          var usaTime = new Date().toLocaleString("en-US", { timeZone: "America/New_York" });
+          usaTime = new Date(usaTime);
+          //alert(now);
+          // Find the distance between now and the count down date
+          var distance = countDownDate - usaTime;
+        {% else %}
+
+        var distance = countDownDate - now;
+        {% endif %}
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor(((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)){% unless section.settings.show_days %} + (days * 24){% endunless %});
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        // Output the result in an element with id="demo"
+        //   document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+        //   + minutes + "m " + seconds + "s ";
+
+        {% if section.settings.show_days %}
+          if(days > 0){
+            document.querySelector(".count-days").innerHTML = days.toString().padStart(2,"0");
+          } else {
+            document.querySelector(".count-days").innerHTML = 0;
+          }
+        {% endif %}
+        if(hours > 0){
+          document.querySelector(".count-hours").innerHTML = hours.toString().padStart(2,"0");
+        } else {
+          document.querySelector(".count-hours").innerHTML = 0;
+        }
+        if(minutes > 0){
+          document.querySelector(".count-minute").innerHTML = minutes.toString().padStart(2,"0");
+        } else {
+          document.querySelector(".count-minute").innerHTML = 0;
+        }
+        if(seconds > 0){
+          document.querySelector(".count-sec").innerHTML = seconds.toString().padStart(2,"0");
+        } else {
+          document.querySelector(".count-sec").innerHTML = ('0'.padStart(2,"0"));
+        }
+
+        // If the count down is over, write some text
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("demo").innerHTML = "EXPIRED";
+        }
+      }, 1000);
+    </script>
+
+    <div class="countdown-wrap">
+      {% if section.settings.countdown_text %}
+        <p style="font-size: 10px; font-weight: 600; margin-bottom: -3em;">{{ section.settings.countdown_text }}</p>
+      {% endif %}
+      <div class="countdown-timer">
+        <div
+          class="countdown-1"
+          {% unless section.settings.show_days %}
+            style="display:none;"
+          {% endunless %}
+        >
+          <p class="count-days"></p>
+          <p class="label-days">Days</p>
+        </div>
+        <div class="countdown-2">
+          <p class="count-hours"></p>
+          <p class="label-hours">Hours</p>
+        </div>
+        <div class="countdown-3">
+          <p class="count-minute"></p>
+          <p class="label-minute">Minutes</p>
+        </div>
+        <div class="countdown-4">
+          <p class="count-sec"></p>
+          <p class="label-sec">Seconds</p>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endif %}
+{% schema %}
+{
+  "name": "Countdown Timer",
+  "class": "shopify-section-countdown",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enabled",
+      "label": "Countdown Timer",
+      "default": false
+    },
+    {
+      "type": "radio",
+      "id": "countdown_zone",
+      "label": "Time Zone",
+      "options": [
+        { "value": "machine_time", "label": "Machine Time" },
+        { "value": "store_time", "label": "Eastern Time (America/New_York)" }
+      ],
+      "default": "machine_time",
+      "info": "Select time zone for countdown timer"
+    },
+    {
+      "type": "text",
+      "id": "countdown_time",
+      "label": "Countdown Time",
+      "default": "Jan 5, 2022 15:37:25",
+      "info": "Date format : Jan 5, 2022 15:37:25"
+    },
+    {
+      "type": "text",
+      "id": "countdown_text",
+      "label": "Label above countdown timer",
+      "default": "ITEMS AVAILABLE FOR"
+    },
+    {
+      "type": "checkbox",
+      "id": "home_page_only",
+      "label": "Home Page Only",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_days",
+      "label": "Show Days Countdown",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "Countdown Timer"
+    }
+  ]
+}
+{% endschema %}

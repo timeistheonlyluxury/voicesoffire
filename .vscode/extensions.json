@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "Shopify.theme-check-vscode",
+    "bradlc.vscode-tailwindcss",
+    "esbenp.prettier-vscode",
+    "themebetter.jsminifyobfuscator",
+  ]
+}

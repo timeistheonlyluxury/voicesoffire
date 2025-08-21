@@ -1,0 +1,204 @@
+{% comment %}
+<!--
+Copyright (c) 2021 Single, LLC - ALL RIGHTS RESERVED 
+
+NOTICE:  All information contained herein is, and remains the property of Single, LLC 
+and its suppliers, if any. The intellectual and technical concepts contained herein are 
+proprietary to Single, LLC and its suppliers and may be covered by U.S. and Foreign Patents, 
+patents in process, and are protected by trade secret or copyright law. Dissemination of this 
+information or reproduction of this material is strictly forbidden unless prior 
+written permission is obtained from Single, LLC.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+{% endcomment %}
+
+{% assign ticket_promo = true %}
+
+<section class="single-login">
+  <div id="form-login" class="single-form">
+    <h1 id="LoginHeading" class="text-center">{{ 'single.login.title' | t }}</h1>
+    <p>{{ 'single.login.subtext' | t }}</p>
+    {% form 'customer_login' %}
+      {{ form_errors | default_errors }}
+      <input type="hidden" name="return_to" value="{{ page.url }}">
+      <div class="email">
+         <label for="email">{{ 'single.login.email' | t }}</label>
+         <input type="email" name="customer[email]">
+       </div>
+       <div class="password">
+         <label for="password">{{ 'single.login.password' | t }}</label>
+         <input type="password" name="customer[password]">
+       </div>
+      <div class="submit">
+        <input type="submit" value="{{ 'single.login.sign_in' | t }}" class="btn button">
+      </div>
+    {% endform %}
+      <div class="recover-links">
+        <span>
+          <a onclick="resetToggle()" id="RecoverPassword">{{ 'single.login.forgot_password' | t }}</a>
+        </span>
+        <span class="divider"> • </span>
+        <span>{{ 'single.login.create_account' | t | customer_register_link }}</span>
+      </div>
+  </div>
+  <div id="form-recover" class="single-form hidden">
+    <h1 id="LoginHeading" class="text-center">{{ 'single.recover_password.title' | t }}</h1>
+    <p>{{ 'single.recover_password.subtext' | t }}</p>
+    {% form 'recover_customer_password' %}
+      {{ form_errors | default_errors }}
+      <input type="hidden" name="return_to" value="{{ page.url }}">
+      <div class="email">
+        <label for="email">{{ 'single.login.email' | t }}</label>
+        <input type="email" name="email">
+      </div>
+      <div class="submit">
+        <input type="submit" value="{{ 'single.recover_password.submit' | t }}" class="btn button">
+      </div>
+    {% endform %}
+    <div class="recover-links">
+      <span>
+        <a onclick="resetToggle()" id="RecoverPassword">{{ 'single.recover_password.cancel' | t }}</a>
+      </span>
+    </div>
+    <script>
+      function resetToggle() {
+        var login = document.getElementById("form-login");
+        login.classList.toggle("hidden");
+        var reset = document.getElementById("form-recover");
+        reset.classList.toggle("hidden");
+      }
+    </script>
+  </div>
+  <h4>{{ 'single.login.help_header' | t }}</h4>
+  <p><a href="FAQ_LINK" target="_blank">{{ 'single.login.faq' | t }}</a></p>
+</section>
+
+{% if ticket_promo %}
+  {% include 'single-ticket-promo' %}
+{% endif %}
+
+{% schema %}
+  {
+    "locales": {
+      "en": {
+        "single": {
+          "login": {
+            "title": "Login",
+            "subtext": "Please use the account created when purchasing your ticket!",
+            "email": "Email",
+            "password": "Password",
+            "sign_in": "Sign In",
+            "forgot_password": "Reset Password",
+            "create_account": "Create Account",
+            "help_header": "Having Issues?",
+            "faq": "Support available on the FAQ page."
+          },
+          "alert": {
+            "error_heading": "There was an error.",
+            "reset_success": "A reset email will be delivered to your inbox."
+          },
+          "recover_password": {
+            "title": "Reset Your Password",
+            "subtext": "We will send you an email to reset your password.",
+            "submit": "Submit",
+            "cancel": "Cancel"
+          },
+		  "collection": {
+			"title": "Need Tickets?"
+		  }
+        }
+      },
+      "fr": {
+        "single": {
+          "login": {
+            "title": "S'inscrire au live",
+            "subtext": "Utilise le compte créé lors de l'achat de ton billet au live stp!",
+            "email": "E-mail",
+            "password": "Mot de passe",
+            "sign_in": "Connexion",
+            "forgot_password": "Mot de passe oublié ?",
+            "create_account": "Créer un compte",
+            "help_header": "As-tu un problème?",
+            "faq": "Aide est disponible sur la page FAQ."
+          },
+          "alert": {
+            "error_heading": "Erreur.",
+            "reset_success": "Nous envoyons un email de réinitialisation."
+          },
+          "recover_password": {
+            "title": "Réinitialiser le mot de passe",
+            "subtext": "Nous t'enverrons un email pour réinitialiser ton mot de passe.",
+            "submit": "Soumettre",
+            "cancel": "Annuler"
+          },
+		  "collection": {
+		    "title": "Besoin de billets?"
+		  }
+        }
+      },
+      "es": {
+        "single": {
+          "login": {
+            "title": "Login para el Live stream",
+            "subtext": "¡Por favor utilice la cuenta creada al comprar su ticket para el Live Stream!",
+            "email": "Correo electrónico",
+            "password": "Contraseña",
+            "sign_in": "Iniciar sesión",
+            "forgot_password": "¿Olvidaste tu contraseña?",
+            "create_account": "Crear cuenta nueva",
+            "help_header": "¿Tienes problemas?",
+            "faq": "Soporte en la página de preguntas frecuentes."
+          },
+          "alert": {
+            "error_heading": "Error.",
+            "reset_success": "Se enviará un correo electrónico de restablecimiento a tu bandeja de entrada."
+          },
+          "recover_password": {
+            "title": "Restablecer la contraseña",
+            "subtext": "Te enviaremos un correo electrónico para restablecer tu contraseña.",
+            "submit": "Enviar",
+            "cancel": "Cancelar"
+          },
+	      "collection": {
+			"title": "¿Necesitas entradas?"
+		  }
+        }
+      },
+      "de": {
+        "single": {
+          "login": {
+            "title": "Livestream Login",
+            "subtext": "Please use the account created when purchasing your livestream ticket!",
+            "email": "Email",
+            "password": "Passwort",
+            "sign_in": "Anmelden",
+            "forgot_password": "Passwort vergessen?",
+            "create_account": "Benutzerkonto anlegen",
+            "help_header": "Having Issues?",
+            "faq": "Support available on the FAQ page."
+          },
+          "alert": {
+            "error_heading": "Error.",
+            "reset_success": "A reset email will be delivered to your inbox."
+          },
+          "recover_password": {
+            "title": "Setze dein Passwort zurück",
+            "subtext": "We will send you an email to reset your password.",
+            "submit": "Einreichen",
+            "cancel": "Stornieren"
+          },
+		  "collection": {
+		    "title": "Benötigen Sie Tickets?"
+		  }
+        }
+      }
+    }
+  }
+{% endschema %}

@@ -1,0 +1,92 @@
+<style>
+  .section-web-video {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .web-video-container {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  @media (min-width: 769px) {
+    .section-web-video {
+      padding: 0 4px;
+    }
+  }
+</style>
+{% comment %} onclick="this.paused ? this.play() : this.pause(); arguments[0].preventDefault();" {% endcomment %}
+
+<div class="section-web-video page-width">
+  <div class="web-video-container">
+    {%- if section.settings.s_video -%}
+      <div style="width: 100%; position: relative; padding-bottom: {{ section.settings.s_video.aspect_ratio | times: 100.0 }}%; height: 0; overflow: hidden;">
+        <video
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+          controls
+          controlsList="nodownload"
+          playsinline
+          poster="{{ section.settings.s_video.preview_image | image_url: width: 1920 }}"
+        >
+          {%- for source in section.settings.s_video.sources -%}
+            
+            <source src="{{ source.url }}" type="{{ source.mime_type }}">
+          {%- endfor -%}
+        </video>
+      </div>
+    {%- elsif section.settings.url -%}
+      <div style="width: 100%; position: relative; padding-bottom: {{ section.settings.aspect_ratio }}%; height: 0; overflow: hidden;">
+        <video
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+          controls
+          controlsList="nodownload"
+          playsinline
+          poster="{{ section.settings.poster | image_url: width: 1920 }}"
+        >
+          <source src="{{ section.settings.url }}" type="video/mp4">
+        </video>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{%- schema -%}
+{
+  "name": "Web Video",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "video",
+      "id": "s_video",
+      "label": "Video",
+      "info": "Takes priority over URL input below."
+    },
+    {
+      "type": "url",
+      "id": "url",
+      "label": "URL"
+    },
+    {
+      "type": "text",
+      "id": "aspect_ratio",
+      "label": "Aspect Ratio",
+      "default": "56.25",
+      "info": "Only for URL input. Height divided by width, e.g. 56.25 for 16:9. Do not enter percent symbol."
+    },
+    {
+      "type": "image_picker",
+      "id": "poster",
+      "label": "Poster",
+      "info": "Only for URL input."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Web Video",
+      "category": "Video"
+    }
+  ]
+}
+{%- endschema -%}

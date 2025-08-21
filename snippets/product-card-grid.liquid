@@ -1,0 +1,135 @@
+{% assign number_of_images = product.images.size %}
+
+<style>
+  .hidden {
+    display: none;
+    position: absolute;
+    top: 0;
+  }
+
+  @media screen and (min-width: 750px) {
+    .product-recommendations__inner
+      li.grid__item.small--one-half.medium-up--one-quarter:hover
+      .grid-view-item__image.hoverable {
+      display: none !important;
+    }
+    li.grid__item.grid__item--collection.small--one-half.medium-up--one-fifth:hover .grid-view-item__image.hoverable {
+      display: none !important;
+    }
+    li.grid__item.grid__item--collection.small--one-half.medium-up--one-fifth:hover .hidden {
+      display: block;
+    }
+    .product-recommendations__inner li.grid__item.small--one-half.medium-up--one-quarter:hover .hidden {
+      display: block;
+    }
+    li.grid__item.grid__item--collection.small--one-half.medium-up--one-quarter:hover .grid-view-item__image.hoverable {
+      display: none !important;
+    }
+    li.grid__item.grid__item--collection.small--one-half.medium-up--one-quarter:hover .hidden {
+      display: block;
+    }
+    li.grid__item.grid__item--collection.small--one-half.medium-up--one-third:hover .grid-view-item__image.hoverable {
+      display: none !important;
+    }
+    li.grid__item.grid__item--collection.small--one-half.medium-up--one-third:hover .hidden {
+      display: block;
+    }
+    li.grid__item.grid__item--collection-template.small--one-half:hover .grid-view-item__image.hoverable {
+      display: none !important;
+    }
+    li.grid__item.grid__item--collection-template.small--one-half:hover .hidden {
+      display: block;
+    }
+    li.grid__item.grid__item--collection.medium-up--one-half:hover .grid-view-item__image.hoverable {
+      display: none !important;
+    }
+    li.grid__item.grid__item--collection.medium-up--one-half:hover .hidden {
+      display: block;
+    }
+  }
+
+  .grid-view-item__image-wrapper {
+    max-width: 100% !important;
+  }
+
+  img.grid-view-item__image.first-image {
+    max-width: 100% !important;
+    max-height: 100% !important;
+  }
+
+  .grid-view-item__image-wrapper-inner {
+    padding-top: 100%;
+  }
+
+  .grid-view-item__image-wrapper-inner > img {
+    object-position: center;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+{% comment %}
+  Renders a product card using "Grid" style
+  Accepts:
+  - max_height: {Number} Maximum height of the product's image (required)
+  - product: {Object} Product Liquid object (required)
+  - show_vendor: {Boolean} Show the product's vendor depending on the section setting (optional)
+
+  Usage:
+  {% include 'product-card-grid', max_height: max_height, product: product, show_vendor: section.settings.show_vendor %}
+{% endcomment %}
+<div class="test grid-view-item{% unless product.available %} grid-view-item--sold-out{% endunless %} product-card">
+  <a class="grid-view-item__link grid-view-item__image-container full-width-link" href="{{ product.url }}">
+    <span class="visually-hidden">{{ product.title }}</span>
+  </a>
+
+  {% capture img_id %}ProductCardImage-{{ section.id }}-{{ product.id }}{% endcapture %}
+  {% capture wrapper_id %}ProductCardImageWrapper-{{ section.id }}-{{ product.id }}{% endcapture %}
+  {%- assign preview_image = product.featured_media.preview_image -%}
+  {%- assign swap_preview_image = product.images.last -%}
+  {%- assign img_url = preview_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+  {%- assign swap_img_url = product.images.last | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+  {% unless preview_image == blank %}
+    {% include 'image-style', image: preview_image, height: max_height, wrapper_id: wrapper_id, img_id: img_id %}
+  {% endunless %}
+
+  <div class="product-card__image-with-placeholder-wrapper" data-image-loading-animation>
+    <div id="{{ wrapper_id }}" class="grid-view-item__image-wrapper product-card__image-wrapper js">
+      <div class="grid-view-item__image-wrapper-inner">
+        <img
+          id="{{ img_id }}"
+          class="grid-view-item__image lazyload first-image {% if number_of_images > 1  %} hoverable{% endif %}"
+          alt="{{ preview_image.alt }}"
+          data-src="{{ img_url }}"
+          data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+          data-aspectratio="{{ preview_image.aspect_ratio }}"
+          data-sizes="auto"
+          data-image
+        >
+        {% if number_of_images > 1 %}
+          <img
+            class="hidden"
+            src="{{  product.images[1] | img_url: 'large' }}"
+            alt="{{ product.images[1].alt | escape  }}"
+          >
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <noscript>
+    {% capture image_size %}{{ max_height }}x{{ max_height }}{% endcapture %}
+    <img
+      class="grid-view-item__image"
+      src="{{ preview_image | img_url: image_size, scale: 2 }}"
+      alt="{{ preview_image.alt }}"
+      style="max-width: {{ max_height | times: preview_image.aspect_ratio }}px;"
+    >
+  </noscript>
+
+  <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
+
+  {% include 'product-price-listing', product: product, show_vendor: show_vendor %}
+</div>

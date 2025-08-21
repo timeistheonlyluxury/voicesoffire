@@ -1,0 +1,48 @@
+{%- if section.settings.border_on -%}
+  <style>
+      .index-newsletter .index-klaviyo-form{
+      border: 3px solid {{ section.settings.border_color }};
+    }
+  </style>
+{%- endif -%}
+
+{%- if section.settings.klaviyo_id != '' -%}
+  <div class="index-newsletter">
+    <div class="index-klaviyo-form klaviyo-form-{{- section.settings.klaviyo_id -}}"></div>
+  </div>
+{%- endif -%}
+
+{%- schema -%}
+{
+  "name": "Klaviyo Signup",
+  "settings": [
+    {
+      "type": "text",
+      "id": "klaviyo_id",
+      "label": "Klaviyo ID"
+    },
+    {
+      "type": "checkbox",
+      "id": "border_on",
+      "label": "Show Border",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Klaviyo Signup",
+      "settings": {
+        "border_color": "#000000"
+      }
+    }
+  ],
+  "enabled_on": {
+    "templates": ["index"]
+  }
+}
+{%- endschema -%}

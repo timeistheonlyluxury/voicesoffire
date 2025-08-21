@@ -1,0 +1,43 @@
+{% comment %}
+<!--
+Copyright (c) 2021 Single, LLC - ALL RIGHTS RESERVED 
+
+NOTICE:  All information contained herein is, and remains the property of Single, LLC 
+and its suppliers, if any. The intellectual and technical concepts contained herein are 
+proprietary to Single, LLC and its suppliers and may be covered by U.S. and Foreign Patents, 
+patents in process, and are protected by trade secret or copyright law. Dissemination of this 
+information or reproduction of this material is strictly forbidden unless prior 
+written permission is obtained from Single, LLC.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+{% endcomment %}
+
+<!-- Single Share Menu -->
+<div class="single-share-menu">
+  <div class="single-field-label">Share</div>
+  <div class="single-share-link">
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ shop.url }}{{ product.url }}"
+      onclick="window.open(this.href, 'single_fb_share', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;">
+      <img src="{{ 'facebook-icon.svg' | asset_url }}" width="20" height="20"/>
+    </a>
+  </div>
+  <div class="single-share-link">
+    <a href="https://twitter.com/home?status=Check%20out%20%22{{ product.title }}%22%20by%20{{ product.metafields.album.artist_name }}%20available%20now!%20{{ shop.url }}{{ product.url }}"
+       onclick="window.open(this.href, 'single_tw_share', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;">
+      <img src="{{ 'twitter-icon.svg' | asset_url }}" width="20" height="20"/>
+    </a>
+  </div>
+  <div class="single-share-link">
+    <a href="https://pinterest.com/pin/create/button/?url={{ shop.url }}{{ product.url }}&media={{ product.featured_image.src | img_url: 'grande' }}&description=Check%20out%20%22{{ product.title }}%22%20by%20{{ product.metafields.album.artist_name }}%20available%20now!"
+       onclick="window.open(this.href, 'single_tw_share', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;">
+      <img src="{{ 'pinterest-icon.svg' | asset_url }}" width="20" height="20"/>
+    </a>
+  </div>
+</div>
