@@ -269,11 +269,10 @@
       },
       "1623181558165b9230": {
         "type": "rich-text",
-        "disabled": true,
         "settings": {
           "full_width": true,
           "section_title": "",
-          "text": "<p>_________________________________________________________________________________________________________________</p>",
+          "text": "<p></p><p></p><p></p>",
           "text_size": "medium"
         }
       },
@@ -296,12 +295,44 @@
           "cart_ajax_enable": true,
           "cart_notes_enable": false
         }
+      },
+      "rich_text_499PRQ": {
+        "type": "rich-text",
+        "disabled": true,
+        "settings": {
+          "full_width": true,
+          "section_title": "",
+          "text": "<p>_________________________________________________________________________________________________________________</p>",
+          "text_size": "medium"
+        }
+      },
+      "rich_text_AkraMk": {
+        "type": "rich-text",
+        "settings": {
+          "full_width": true,
+          "section_title": "",
+          "text": "<p></p><p></p><p></p>",
+          "text_size": "medium"
+        }
+      },
+      "rich_text_q7aMwi": {
+        "type": "rich-text",
+        "disabled": true,
+        "settings": {
+          "full_width": true,
+          "section_title": "",
+          "text": "<p></p><p></p><p></p>",
+          "text_size": "medium"
+        }
       }
     },
     "content_for_index": [
       "1623859689008f58c0",
       "collection",
-      "1623181558165b9230"
+      "1623181558165b9230",
+      "rich_text_AkraMk",
+      "rich_text_q7aMwi",
+      "rich_text_499PRQ"
     ]
   },
   "presets": {
