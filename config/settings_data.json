@@ -20,7 +20,7 @@
     "share_facebook": true,
     "share_twitter": true,
     "share_pinterest": false,
-    "favicon": "",
+    "favicon": "shopify://shop_images/vof_icona_2025.png",
     "checkout_logo_image": "",
     "checkout_logo_position": "center",
     "checkout_heading_font": "Helvetica Neue",
