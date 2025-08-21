@@ -14,7 +14,7 @@
     "color_text_field_border": "#dedede",
     "color_text_field": "#fff",
     "color_borders": "#ffffff",
-    "type_header_base_size": 20,
+    "type_header_base_size": 24,
     "type_base_font": "inter_n7",
     "type_base_size": 14,
     "predictive_search_enabled": true,
