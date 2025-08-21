@@ -231,7 +231,8 @@
       "password-header": {
         "type": "password-header",
         "settings": {
-          "logo_max_width": 180,
+          "logo": "shopify://shop_images/vof_logob_2025.png",
+          "logo_max_width": 200,
           "header": "",
           "image_max_width": 500
         }
@@ -239,7 +240,8 @@
       "password-content": {
         "type": "password-content",
         "settings": {
-          "newsletter_enable": true,
+          "newsletter_enable": false,
+          "klaviyo_form_id": "",
           "newsletter_form_heading": "",
           "newsletter_form_subheading": "",
           "newsletter_placeholder": "ENTER EMAIL FOR UPDATES",
