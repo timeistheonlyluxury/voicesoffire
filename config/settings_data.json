@@ -360,7 +360,7 @@
           "enabled": true,
           "countdown_zone": "store_time",
           "countdown_time": "Sep 13, 2025 15:00:00",
-          "countdown_text": "\"Grace for the World\"<br>St. Peter’s Square, Vatican City<br>Tune in Saturday, September 13th<br>12pm PST/3pm EST/9pm CEST",
+          "countdown_text": "",
           "home_page_only": true,
           "show_days": true
         }
@@ -371,11 +371,21 @@
           "full_width": true,
           "section_title": "EXPERIENCE THE FULL POWER OF OPHANIM.",
           "text": "<p>UNLOCK EVERY TRACK RIGHT HERE, DOWNLOAD ONLY.</p><p></p>",
+          "text_size": "small"
+        }
+      },
+      "rich_text_f4mRV8": {
+        "type": "rich-text",
+        "settings": {
+          "full_width": true,
+          "section_title": "GRACE FOR THE WORLD",
+          "text": "<p>St. Peter’s Square, Vatican City<br/>Tune in Saturday, September 13th<br/>12pm PST/3pm EST/9pm CEST</p>",
           "text_size": "medium"
         }
       }
     },
     "content_for_index": [
+      "rich_text_f4mRV8",
       "countdown_ciWktx",
       "rich_text_AkraMk",
       "rich_text_68xEpr",
