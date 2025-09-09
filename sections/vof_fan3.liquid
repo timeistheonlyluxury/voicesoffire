@@ -1,0 +1,44 @@
+<a href="{{ section.settings.image_url }}">
+  {%- if section.settings.desktop_image and section.settings.mobile_image -%}
+    {{
+      section.settings.desktop_image
+      | image_url: section.settings.desktop_image, width: 2048, height: 2048, crop: 'center'
+      | image_tag: class: 'fand3_img hide-on-mobile', draggable: false
+    }}
+    {{
+      section.settings.mobile_image
+      | image_url: section.settings.mobile_image, width: 2048, height: 2048, crop: 'center'
+      | image_tag: class: 'fand3_img hide-on-desktop', draggable: false
+    }}
+  {%- elsif section.settings.desktop_image -%}
+    {{
+      section.settings.desktop_image
+      | image_url: section.settings.desktop_image, width: 2048, height: 2048, crop: 'center'
+      | image_tag: class: 'fand3_img', draggable: false
+    }}
+  {%- endif -%}
+</a>
+
+{%- schema -%}
+{
+  "name": "VOF Fan3 Asset",
+  "class": "index-section page-width",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "url",
+      "id": "image_url",
+      "label": "Image URL"
+    }
+  ]
+}
+{%- endschema -%}
