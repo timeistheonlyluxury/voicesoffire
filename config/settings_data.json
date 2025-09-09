@@ -271,7 +271,7 @@
         "type": "collection",
         "settings": {
           "title": "",
-          "collection": "frontpage",
+          "collection": "line-1",
           "grid": 3,
           "mobile_grid": 1,
           "rows": 5,
@@ -329,10 +329,24 @@
           "video_title": "",
           "text_size": "medium"
         }
+      },
+      "collection_kaBfEE": {
+        "type": "collection",
+        "settings": {
+          "title": "",
+          "collection": "line-2",
+          "grid": 3,
+          "mobile_grid": 1,
+          "rows": 5,
+          "show_vendor": false,
+          "show_view_all": false,
+          "center_last_row": true
+        }
       }
     },
     "content_for_index": [
       "1623859689008f58c0",
+      "collection_kaBfEE",
       "collection",
       "video_tiU84q",
       "rich_text_AkraMk",
