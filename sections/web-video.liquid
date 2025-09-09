@@ -31,7 +31,6 @@
           poster="{{ section.settings.s_video.preview_image | image_url: width: 1920 }}"
         >
           {%- for source in section.settings.s_video.sources -%}
-            
             <source src="{{ source.url }}" type="{{ source.mime_type }}">
           {%- endfor -%}
         </video>
