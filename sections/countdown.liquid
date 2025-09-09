@@ -5,6 +5,7 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 30px;
+    margin-top: -35px;
   }
 
   .countdown-wrap p {
@@ -22,7 +23,9 @@
   .countdown-timer {
     margin: auto;
     display: table;
-    margin-top: 20px;
+    {%- if section.settings.countdown_text and section.settings.countdown_text != "" -%}
+      margin-top: 20px;
+    {%- endif -%}
   }
 
   .count-days,
@@ -49,6 +52,11 @@
     display: table-cell;
     vertical-align: middle;
     float: left;
+  }
+  @media screen and (min-width: 750px){
+    .countdown-wrap {
+      margin-top: -55px;
+    }
   }
 </style>
 
