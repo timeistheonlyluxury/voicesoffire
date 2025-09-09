@@ -110,8 +110,8 @@
         "disabled": true,
         "settings": {
           "title": "",
-          "collection": "hoodies",
-          "grid": 3,
+          "collection": "orphanim-digital-tracks",
+          "grid": 4,
           "mobile_grid": 1,
           "rows": 5,
           "show_vendor": false,
