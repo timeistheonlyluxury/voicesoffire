@@ -358,23 +358,33 @@
         "settings": {
           "enabled": true,
           "countdown_zone": "store_time",
-          "countdown_time": "Sept 13, 2025 15:00",
-          "countdown_text": "ITEMS AVAILABLE UNTIL",
+          "countdown_time": "Sep 13, 2025 15:00:00",
+          "countdown_text": "\"Grace for the World\"<br>St. Peter’s Square, Vatican City",
           "home_page_only": true,
-          "show_days": false
+          "show_days": true
+        }
+      },
+      "rich_text_68xEpr": {
+        "type": "rich-text",
+        "settings": {
+          "full_width": true,
+          "section_title": "EXPERIENCE THE FULL POWER OF OPHANIM.",
+          "text": "<p>UNLOCK EVERY TRACK RIGHT HERE, DOWNLOAD ONLY.</p><p></p>",
+          "text_size": "medium"
         }
       }
     },
     "content_for_index": [
       "countdown_ciWktx",
+      "rich_text_AkraMk",
+      "rich_text_68xEpr",
       "1623859689008f58c0",
       "collection_kaBfEE",
       "collection",
+      "vof_fan3_yxWtty",
       "video_tiU84q",
-      "rich_text_AkraMk",
       "rich_text_q7aMwi",
-      "rich_text_499PRQ",
-      "vof_fan3_yxWtty"
+      "rich_text_499PRQ"
     ]
   },
   "presets": {
