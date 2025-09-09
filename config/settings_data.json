@@ -351,9 +351,22 @@
           "mobile_image": "shopify://shop_images/d2e88a3b-3f96-4e0c-80e6-c579b2b462f0-1.jpg",
           "image_url": ""
         }
+      },
+      "countdown_ciWktx": {
+        "type": "countdown",
+        "name": "Countdown Timer",
+        "settings": {
+          "enabled": true,
+          "countdown_zone": "store_time",
+          "countdown_time": "Sept 13, 2025 15:00",
+          "countdown_text": "ITEMS AVAILABLE FOR",
+          "home_page_only": true,
+          "show_days": false
+        }
       }
     },
     "content_for_index": [
+      "countdown_ciWktx",
       "1623859689008f58c0",
       "collection_kaBfEE",
       "collection",
