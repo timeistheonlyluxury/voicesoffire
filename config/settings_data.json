@@ -107,7 +107,6 @@
       },
       "collection": {
         "type": "collection",
-        "disabled": true,
         "settings": {
           "title": "",
           "collection": "orphanim-digital-tracks",
@@ -391,9 +390,9 @@
       "rich_text_68xEpr",
       "1623859689008f58c0",
       "collection_kaBfEE",
-      "collection",
       "vof_fan3_yxWtty",
       "video_tiU84q",
+      "collection",
       "rich_text_q7aMwi",
       "rich_text_499PRQ"
     ]
