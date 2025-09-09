@@ -359,7 +359,7 @@
           "enabled": true,
           "countdown_zone": "store_time",
           "countdown_time": "Sept 13, 2025 15:00",
-          "countdown_text": "ITEMS AVAILABLE FOR",
+          "countdown_text": "ITEMS AVAILABLE UNTIL",
           "home_page_only": true,
           "show_days": false
         }
