@@ -300,7 +300,6 @@
       },
       "rich_text_AkraMk": {
         "type": "rich-text",
-        "disabled": true,
         "settings": {
           "full_width": true,
           "section_title": "",
