@@ -330,19 +330,6 @@
           "text_size": "medium"
         }
       },
-      "collection_kaBfEE": {
-        "type": "collection",
-        "settings": {
-          "title": "",
-          "collection": "line-2",
-          "grid": 3,
-          "mobile_grid": 1,
-          "rows": 5,
-          "show_vendor": false,
-          "show_view_all": false,
-          "center_last_row": true
-        }
-      },
       "vof_fan3_yxWtty": {
         "type": "vof_fan3",
         "name": "VOF Fan3 Asset",
@@ -376,11 +363,25 @@
       },
       "rich_text_f4mRV8": {
         "type": "rich-text",
+        "disabled": true,
         "settings": {
           "full_width": true,
           "section_title": "GRACE FOR THE WORLD",
           "text": "<p>St. Peter’s Square, Vatican City<br/>Tune in Saturday, September 13th<br/>12pm PST/3pm EST/9pm CEST</p>",
           "text_size": "medium"
+        }
+      },
+      "collection_98GRq7": {
+        "type": "collection",
+        "settings": {
+          "title": "",
+          "collection": "line-2",
+          "grid": 4,
+          "mobile_grid": 1,
+          "rows": 5,
+          "show_vendor": false,
+          "show_view_all": false,
+          "center_last_row": true
         }
       }
     },
@@ -390,10 +391,10 @@
       "rich_text_AkraMk",
       "rich_text_68xEpr",
       "1623859689008f58c0",
-      "collection_kaBfEE",
       "vof_fan3_yxWtty",
-      "video_tiU84q",
       "collection",
+      "collection_98GRq7",
+      "video_tiU84q",
       "rich_text_q7aMwi",
       "rich_text_499PRQ"
     ]
