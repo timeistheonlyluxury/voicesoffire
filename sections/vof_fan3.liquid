@@ -23,20 +23,16 @@
     {%- if section.settings.desktop_image and section.settings.mobile_image -%}
       {{
         section.settings.desktop_image
-        | image_url: width: 2048, height: 2048, crop: 'center'
+        | image_url: width: 2180
         | image_tag: class: 'fan3_img hide-on-mobile', draggable: false
       }}
       {{
         section.settings.mobile_image
-        | image_url: width: 2048, height: 2048, crop: 'center'
+        | image_url: width: 1400
         | image_tag: class: 'fan3_img hide-on-desktop', draggable: false
       }}
     {%- elsif section.settings.desktop_image -%}
-      {{
-        section.settings.desktop_image
-        | image_url: width: 2048, height: 2048, crop: 'center'
-        | image_tag: class: 'fan3_img', draggable: false
-      }}
+      {{ section.settings.desktop_image | image_url: width: 2180 | image_tag: class: 'fan3_img', draggable: false }}
     {%- endif -%}
   </a>
 </div>
