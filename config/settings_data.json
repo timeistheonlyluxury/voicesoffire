@@ -34,8 +34,8 @@
         "type": "header",
         "settings": {
           "align_logo": "center",
-          "logo": "shopify://shop_images/vof_logob_2025.png",
-          "logo_max_width": 225,
+          "logo": "shopify://shop_images/VOICES_OF_FIRE_LOGO.png",
+          "logo_max_width": 250,
           "enable_countdown": false,
           "countdown_zone": "store_time",
           "countdown_time": "Mar 10, 2022 12:00:00",
