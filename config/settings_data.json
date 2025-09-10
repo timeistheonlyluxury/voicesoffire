@@ -354,6 +354,7 @@
       },
       "countdown_ciWktx": {
         "type": "countdown",
+        "disabled": true,
         "name": "Countdown Timer",
         "settings": {
           "enabled": true,
