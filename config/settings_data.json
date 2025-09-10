@@ -22,6 +22,7 @@
     "share_twitter": true,
     "share_pinterest": false,
     "favicon": "shopify://shop_images/vof_albumcovericon_2025.png",
+    "background_image": "shopify://shop_images/04_VOF_MiracleWorker_NOUFO.png",
     "checkout_logo_image": "",
     "checkout_logo_position": "center",
     "checkout_heading_font": "Helvetica Neue",
