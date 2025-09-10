@@ -21,7 +21,7 @@
     "share_facebook": true,
     "share_twitter": true,
     "share_pinterest": false,
-    "favicon": "shopify://shop_images/vof_icona_2025.png",
+    "favicon": "shopify://shop_images/vof_albumcovericon_2025.png",
     "checkout_logo_image": "",
     "checkout_logo_position": "center",
     "checkout_heading_font": "Helvetica Neue",
@@ -107,11 +107,10 @@
       },
       "collection": {
         "type": "collection",
-        "disabled": true,
         "settings": {
           "title": "",
-          "collection": "hoodies",
-          "grid": 3,
+          "collection": "orphanim-digital-tracks",
+          "grid": 4,
           "mobile_grid": 1,
           "rows": 5,
           "show_vendor": false,
@@ -260,7 +259,7 @@
         "settings": {
           "layout": "grid",
           "grid": 4,
-          "rows": 2,
+          "rows": 8,
           "show_collection_image": true,
           "show_vendor": false,
           "sort_enable": true,
@@ -391,9 +390,9 @@
       "rich_text_68xEpr",
       "1623859689008f58c0",
       "collection_kaBfEE",
-      "collection",
       "vof_fan3_yxWtty",
       "video_tiU84q",
+      "collection",
       "rich_text_q7aMwi",
       "rich_text_499PRQ"
     ]
