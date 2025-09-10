@@ -34,7 +34,7 @@
         "type": "header",
         "settings": {
           "align_logo": "center",
-          "logo": "shopify://shop_images/VOICES_OF_FIRE_LOGO.png",
+          "logo": "shopify://shop_images/VOICES_OF_FIRE_LOGO_1.png",
           "logo_max_width": 250,
           "enable_countdown": false,
           "countdown_zone": "store_time",
