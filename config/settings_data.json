@@ -389,7 +389,7 @@
         "settings": {
           "title": "",
           "collection": "physical-music",
-          "grid": 4,
+          "grid": 5,
           "mobile_grid": 1,
           "rows": 5,
           "show_vendor": false,
