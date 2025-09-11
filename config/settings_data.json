@@ -425,7 +425,14 @@
       "collection_t7eErN",
       "rich_text_q7aMwi",
       "rich_text_499PRQ"
-    ]
+    ],
+    "blocks": {
+      "9008193484254126213": {
+        "type": "shopify://apps/orderlogic-min-max-limits/blocks/orderlogic/02463cc1-4876-4a68-8865-248003957801",
+        "disabled": false,
+        "settings": {}
+      }
+    }
   },
   "presets": {
     "Default": {
