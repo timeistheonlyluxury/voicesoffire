@@ -110,7 +110,7 @@
         "type": "collection",
         "settings": {
           "title": "",
-          "collection": "orphanim-digital-tracks",
+          "collection": "ophanim-digital-tracks",
           "grid": 4,
           "mobile_grid": 1,
           "rows": 5,
@@ -401,7 +401,7 @@
         "type": "collection",
         "settings": {
           "title": "",
-          "collection": "orphanim-lyric-videos",
+          "collection": "ophanim-lyric-videos",
           "grid": 4,
           "mobile_grid": 1,
           "rows": 5,
