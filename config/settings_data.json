@@ -431,6 +431,25 @@
         "type": "shopify://apps/orderlogic-min-max-limits/blocks/orderlogic/02463cc1-4876-4a68-8865-248003957801",
         "disabled": false,
         "settings": {}
+      },
+      "2153490007123654574": {
+        "type": "shopify://apps/consentmo-gdpr/blocks/gdpr_cookie_consent/4fbe573f-a377-4fea-9801-3ee0858cae41",
+        "disabled": false,
+        "settings": {}
+      },
+      "15885745614559378752": {
+        "type": "shopify://apps/accessibly/blocks/app-embed/4b59303e-1141-4c8a-945f-bf4adb516864",
+        "disabled": false,
+        "settings": {
+          "themeColor": "#000000",
+          "iconColor": "#000000",
+          "showLogo": true,
+          "topBottomPosition": 10,
+          "rightLeftPosition": 10,
+          "iconSize": "custom",
+          "iconCustomSize": 35,
+          "position": "bottom-left"
+        }
       }
     }
   },
