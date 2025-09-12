@@ -319,6 +319,7 @@
       },
       "video_tiU84q": {
         "type": "video",
+        "disabled": true,
         "name": "Video",
         "settings": {
           "image_position": "center center",
