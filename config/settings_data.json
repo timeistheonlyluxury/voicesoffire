@@ -272,7 +272,7 @@
         "settings": {
           "title": "",
           "collection": "line-1",
-          "grid": 3,
+          "grid": 4,
           "mobile_grid": 1,
           "rows": 5,
           "show_vendor": false,
@@ -300,6 +300,7 @@
       },
       "rich_text_AkraMk": {
         "type": "rich-text",
+        "disabled": true,
         "settings": {
           "full_width": true,
           "section_title": "",
@@ -319,14 +320,14 @@
       },
       "video_tiU84q": {
         "type": "video",
-        "disabled": true,
         "name": "Video",
         "settings": {
+          "image": "shopify://shop_images/YoutubeThumbnailDownload.com-FULL-HD-UFixHZECa7A.jpg",
           "image_position": "center center",
-          "video_link": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+          "video_link": "https://www.youtube.com/watch?v=UFixHZECa7A",
           "show_overlay": false,
           "style": "image_with_play",
-          "height": "medium",
+          "height": "small",
           "video_title": "",
           "text_size": "medium"
         }
@@ -357,8 +358,8 @@
         "type": "rich-text",
         "settings": {
           "full_width": true,
-          "section_title": "EXECUTIVE PRODUCED BY PHARRELL WILLIAMS",
-          "text": "<h2>EXPERIENCE THE FULL POWER OF OPHANIM.</h2><p>UNLOCK EVERY TRACK RIGHT HERE, DOWNLOAD ONLY.</p><p></p>",
+          "section_title": "",
+          "text": "<h3></h3><h3>EXECUTIVE PRODUCED BY PHARRELL WILLIAMS</h3><h2>EXPERIENCE THE FULL POWER OF OPHANIM.</h2><h5>UNLOCK EVERY TRACK RIGHT HERE, DOWNLOAD ONLY.</h5>",
           "text_size": "small"
         }
       },
@@ -378,7 +379,7 @@
           "title": "",
           "collection": "line-2",
           "grid": 4,
-          "mobile_grid": 1,
+          "mobile_grid": 2,
           "rows": 5,
           "show_vendor": false,
           "show_view_all": false,
@@ -418,11 +419,11 @@
       "rich_text_AkraMk",
       "rich_text_68xEpr",
       "1623859689008f58c0",
-      "collection",
-      "collection_WgAV8h",
       "vof_fan3_yxWtty",
+      "collection_WgAV8h",
       "collection_98GRq7",
       "video_tiU84q",
+      "collection",
       "collection_t7eErN",
       "rich_text_q7aMwi",
       "rich_text_499PRQ"
