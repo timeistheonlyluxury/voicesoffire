@@ -272,7 +272,7 @@
         "settings": {
           "title": "",
           "collection": "line-1",
-          "grid": 3,
+          "grid": 4,
           "mobile_grid": 1,
           "rows": 5,
           "show_vendor": false,
