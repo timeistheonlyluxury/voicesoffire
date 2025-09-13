@@ -319,14 +319,14 @@
       },
       "video_tiU84q": {
         "type": "video",
-        "disabled": true,
         "name": "Video",
         "settings": {
+          "image": "shopify://shop_images/YoutubeThumbnailDownload.com-FULL-HD-UFixHZECa7A.jpg",
           "image_position": "center center",
-          "video_link": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+          "video_link": "https://www.youtube.com/watch?v=UFixHZECa7A",
           "show_overlay": false,
           "style": "image_with_play",
-          "height": "medium",
+          "height": "small",
           "video_title": "",
           "text_size": "medium"
         }
