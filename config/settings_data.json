@@ -378,7 +378,7 @@
           "title": "",
           "collection": "line-2",
           "grid": 4,
-          "mobile_grid": 1,
+          "mobile_grid": 2,
           "rows": 5,
           "show_vendor": false,
           "show_view_all": false,
