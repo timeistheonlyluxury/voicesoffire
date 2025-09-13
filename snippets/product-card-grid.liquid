@@ -132,4 +132,11 @@
   <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
 
   {% include 'product-price-listing', product: product, show_vendor: show_vendor %}
+
+  {% if product.tags contains 'web_flag_signed' %}
+    <div class="grid-view-item__flag grid-view-item__flag-signed">
+      <span>SIGNED BY</span><br>
+      <span>PHARRELL WILLIAMS</span>
+    </div>
+  {% endif %}
 </div>

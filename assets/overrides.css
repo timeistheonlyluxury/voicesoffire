@@ -451,6 +451,23 @@
   display: none;
 }
 
+.grid-view-item__flag {
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 0px;
+}
+
+.grid-view-item__flag-signed span {
+  background-color: white;
+  color: black;
+  border-radius: 999px;
+  font-family: var(--font-stack-header);
+  line-height: 1;
+  padding: 3px 8px;
+  text-align: center;
+}
+
 @media only screen and (max-width: 749px) {
   .grid__item--collection-centered {
     margin-left: 0 !important;
