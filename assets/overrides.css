@@ -458,10 +458,10 @@
   margin-top: 0px;
 }
 
-.grid-view-item__flag-signed div {
+.grid-view-item__flag-signed span {
   background-color: white;
   color: black;
-  border-radius: 999px;
+  border-radius: 0;
   font-family: var(--font-stack-header);
   line-height: 1;
   padding: 3px 8px;
