@@ -300,6 +300,7 @@
       },
       "rich_text_AkraMk": {
         "type": "rich-text",
+        "disabled": true,
         "settings": {
           "full_width": true,
           "section_title": "",
@@ -358,7 +359,7 @@
         "settings": {
           "full_width": true,
           "section_title": "EXECUTIVE PRODUCED BY PHARRELL WILLIAMS",
-          "text": "<h2>EXPERIENCE THE FULL POWER OF OPHANIM.</h2><p>UNLOCK EVERY TRACK RIGHT HERE, DOWNLOAD ONLY.</p><p></p>",
+          "text": "<h2>EXPERIENCE THE FULL POWER OF OPHANIM.</h2><p>UNLOCK EVERY TRACK RIGHT HERE, DOWNLOAD ONLY.</p>",
           "text_size": "small"
         }
       },
