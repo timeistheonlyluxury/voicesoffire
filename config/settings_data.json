@@ -358,8 +358,8 @@
         "type": "rich-text",
         "settings": {
           "full_width": true,
-          "section_title": "EXECUTIVE PRODUCED BY PHARRELL WILLIAMS",
-          "text": "<h2>EXPERIENCE THE FULL POWER OF OPHANIM.</h2><p>UNLOCK EVERY TRACK RIGHT HERE, DOWNLOAD ONLY.</p>",
+          "section_title": "",
+          "text": "<h3></h3><h3>EXECUTIVE PRODUCED BY PHARRELL WILLIAMS</h3><h2>EXPERIENCE THE FULL POWER OF OPHANIM.</h2><h5>UNLOCK EVERY TRACK RIGHT HERE, DOWNLOAD ONLY.</h5>",
           "text_size": "small"
         }
       },
