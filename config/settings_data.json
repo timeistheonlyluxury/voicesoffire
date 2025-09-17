@@ -320,6 +320,7 @@
       },
       "video_tiU84q": {
         "type": "video",
+        "disabled": true,
         "name": "Video",
         "settings": {
           "image": "shopify://shop_images/YoutubeThumbnailDownload.com-FULL-HD-UFixHZECa7A.jpg",
