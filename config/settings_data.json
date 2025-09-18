@@ -415,11 +415,20 @@
       },
       "vof_fan3_Nmtftd": {
         "type": "vof_fan3",
-        "name": "VOF Fan3 Asset",
+        "name": "VOF TITLECARD",
         "settings": {
           "desktop_image": "shopify://shop_images/VOF_TITLECARD.png",
           "mobile_image": "shopify://shop_images/VOF_TITLECARD.png",
-          "image_url": "https://a.fan3.io/2nwedl5"
+          "image_url": "https://www.disneyplus.com/en-gb/browse/entity-dff376e3-3951-4b08-a8ff-c76ddb6f1c90"
+        }
+      },
+      "rich_text_ygCz66": {
+        "type": "rich-text",
+        "settings": {
+          "full_width": true,
+          "section_title": "",
+          "text": "<h1>WATCH GRACE FOR THE WORLD FEATURING PHARREL, VOICES OF FIRE AND MORE ON DISNEY+</h1>",
+          "text_size": "small"
         }
       }
     },
@@ -431,9 +440,10 @@
       "1623859689008f58c0",
       "vof_fan3_yxWtty",
       "collection_WgAV8h",
-      "vof_fan3_Nmtftd",
       "collection_98GRq7",
+      "vof_fan3_Nmtftd",
       "video_tiU84q",
+      "rich_text_ygCz66",
       "collection",
       "collection_t7eErN",
       "rich_text_q7aMwi",
