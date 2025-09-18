@@ -412,6 +412,15 @@
           "show_view_all": false,
           "center_last_row": true
         }
+      },
+      "vof_fan3_Nmtftd": {
+        "type": "vof_fan3",
+        "name": "VOF Fan3 Asset",
+        "settings": {
+          "desktop_image": "shopify://shop_images/VOF_TITLECARD.png",
+          "mobile_image": "shopify://shop_images/VOF_TITLECARD.png",
+          "image_url": "https://a.fan3.io/2nwedl5"
+        }
       }
     },
     "content_for_index": [
@@ -422,6 +431,7 @@
       "1623859689008f58c0",
       "vof_fan3_yxWtty",
       "collection_WgAV8h",
+      "vof_fan3_Nmtftd",
       "collection_98GRq7",
       "video_tiU84q",
       "collection",
