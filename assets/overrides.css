@@ -152,6 +152,7 @@
 
 .template-index .price__badge {
   border-color: transparent !important;
+  background-color: transparent !important;
 }
 
 .template-product .price__pricing-group {
