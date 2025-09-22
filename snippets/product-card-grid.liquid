@@ -129,9 +129,13 @@
     >
   </noscript>
 
-  <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
-
-  {% include 'product-price-listing', product: product, show_vendor: show_vendor %}
+  <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">
+    {%- if product.title == 'OPHANIM VATICAN SPECIAL EDITION VINYL (SIGNED)' -%}
+      OPHANIM VATICAN SPECIAL EDITION VINYL
+    {%- else -%}
+      {{- product.title -}}
+    {%- endif -%}
+  </div>
 
   {% if product.tags contains 'web_flag_signed' %}
     <div class="grid-view-item__flag grid-view-item__flag-signed">
@@ -139,4 +143,6 @@
       <span>PHARRELL WILLIAMS</span>
     </div>
   {% endif %}
+
+  {% include 'product-price-listing', product: product, show_vendor: show_vendor %}
 </div>
