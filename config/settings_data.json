@@ -335,6 +335,7 @@
       },
       "vof_fan3_yxWtty": {
         "type": "vof_fan3",
+        "disabled": true,
         "name": "VOF Fan3 Asset",
         "settings": {
           "desktop_image": "shopify://shop_images/PHOTO-2025-09-10-15-53-13.jpg",
@@ -430,6 +431,16 @@
           "text": "<h1>WATCH GRACE FOR THE WORLD FEATURING PHARRELL, VOICES OF FIRE AND MORE ON DISNEY+</h1>",
           "text_size": "small"
         }
+      },
+      "klaviyo_newsletter_P7xkF6": {
+        "type": "klaviyo-newsletter",
+        "disabled": true,
+        "name": "Klaviyo Signup",
+        "settings": {
+          "klaviyo_id": "",
+          "border_on": true,
+          "border_color": "#000000"
+        }
       }
     },
     "content_for_index": [
@@ -438,6 +449,7 @@
       "rich_text_AkraMk",
       "rich_text_68xEpr",
       "1623859689008f58c0",
+      "klaviyo_newsletter_P7xkF6",
       "vof_fan3_yxWtty",
       "collection_WgAV8h",
       "collection_98GRq7",
