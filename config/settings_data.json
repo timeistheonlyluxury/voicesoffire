@@ -300,7 +300,6 @@
       },
       "rich_text_AkraMk": {
         "type": "rich-text",
-        "disabled": true,
         "settings": {
           "full_width": true,
           "section_title": "",
@@ -445,13 +444,13 @@
     "content_for_index": [
       "rich_text_f4mRV8",
       "countdown_ciWktx",
-      "rich_text_AkraMk",
       "rich_text_68xEpr",
       "1623859689008f58c0",
       "vof_fan3_yxWtty",
       "collection_WgAV8h",
       "collection_98GRq7",
       "klaviyo_newsletter_P7xkF6",
+      "rich_text_AkraMk",
       "vof_fan3_Nmtftd",
       "video_tiU84q",
       "rich_text_ygCz66",
