@@ -434,11 +434,10 @@
       },
       "klaviyo_newsletter_P7xkF6": {
         "type": "klaviyo-newsletter",
-        "disabled": true,
         "name": "Klaviyo Signup",
         "settings": {
-          "klaviyo_id": "",
-          "border_on": true,
+          "klaviyo_id": "TNAqLc",
+          "border_on": false,
           "border_color": "#000000"
         }
       }
@@ -485,6 +484,11 @@
           "iconCustomSize": 35,
           "position": "bottom-left"
         }
+      },
+      "855628211100114053": {
+        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {}
       }
     }
   },
