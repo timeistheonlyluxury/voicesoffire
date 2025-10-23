@@ -303,7 +303,7 @@
         "settings": {
           "full_width": true,
           "section_title": "",
-          "text": "<p></p><p></p><p></p>",
+          "text": "",
           "text_size": "medium"
         }
       },
