@@ -319,12 +319,11 @@
       },
       "video_tiU84q": {
         "type": "video",
-        "disabled": true,
         "name": "Video",
         "settings": {
-          "image": "shopify://shop_images/YoutubeThumbnailDownload.com-FULL-HD-UFixHZECa7A.jpg",
+          "image": "shopify://shop_images/theone_thumb_4a863654-ae2d-4ae1-80b7-6d7aede503ea.jpg",
           "image_position": "center center",
-          "video_link": "https://www.youtube.com/watch?v=UFixHZECa7A",
+          "video_link": "https://youtu.be/BUPKKQsRtP8",
           "show_overlay": false,
           "style": "image_with_play",
           "height": "small",
@@ -439,6 +438,34 @@
           "border_on": false,
           "border_color": "#000000"
         }
+      },
+      "video_Mktfj3": {
+        "type": "video",
+        "name": "Video",
+        "settings": {
+          "image": "shopify://shop_images/areyouready_thumb_d1adf200-9c6f-402b-b1ca-4d743792364d.jpg",
+          "image_position": "center center",
+          "video_link": "https://youtu.be/UuC8_HUaJQ0",
+          "show_overlay": false,
+          "style": "image_with_play",
+          "height": "small",
+          "video_title": "",
+          "text_size": "medium"
+        }
+      },
+      "video_X4WUAk": {
+        "type": "video",
+        "name": "Video",
+        "settings": {
+          "image": "shopify://shop_images/miracleworker_thumb_f4a4ef95-17ff-44ff-a621-16732af98751.jpg",
+          "image_position": "center center",
+          "video_link": "https://youtu.be/fRVjlWuO76I",
+          "show_overlay": false,
+          "style": "image_with_play",
+          "height": "small",
+          "video_title": "",
+          "text_size": "medium"
+        }
       }
     },
     "content_for_index": [
@@ -446,13 +473,15 @@
       "countdown_ciWktx",
       "rich_text_68xEpr",
       "1623859689008f58c0",
-      "vof_fan3_yxWtty",
-      "collection_WgAV8h",
-      "collection_98GRq7",
       "klaviyo_newsletter_P7xkF6",
       "rich_text_AkraMk",
-      "vof_fan3_Nmtftd",
+      "vof_fan3_yxWtty",
       "video_tiU84q",
+      "video_Mktfj3",
+      "video_X4WUAk",
+      "collection_WgAV8h",
+      "collection_98GRq7",
+      "vof_fan3_Nmtftd",
       "rich_text_ygCz66",
       "collection",
       "collection_t7eErN",
