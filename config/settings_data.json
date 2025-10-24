@@ -467,6 +467,54 @@
           "video_title": "",
           "text_size": "medium"
         }
+      },
+      "rich_text_FqAhMJ": {
+        "type": "rich-text",
+        "name": "Rich text",
+        "settings": {
+          "full_width": false,
+          "section_title": "",
+          "text": "<h1>THE ONE (FEAT. PHARRELL WILLIAMS) LYRIC VIDEO</h1>",
+          "text_size": "medium"
+        }
+      },
+      "rich_text_zx6KYV": {
+        "type": "rich-text",
+        "name": "Rich text",
+        "settings": {
+          "full_width": false,
+          "section_title": "",
+          "text": "<h1>ARE YOU READY? LYRIC VIDEO</h1>",
+          "text_size": "medium"
+        }
+      },
+      "rich_text_dcrAxt": {
+        "type": "rich-text",
+        "name": "Rich text",
+        "settings": {
+          "full_width": false,
+          "section_title": "",
+          "text": "<h1>MIRACLE WORKER LYRIC VIDEO</h1>",
+          "text_size": "medium"
+        }
+      },
+      "rich_text_8UDyzw": {
+        "type": "rich-text",
+        "settings": {
+          "full_width": false,
+          "section_title": "",
+          "text": "",
+          "text_size": "small"
+        }
+      },
+      "rich_text_3PniiC": {
+        "type": "rich-text",
+        "settings": {
+          "full_width": false,
+          "section_title": "",
+          "text": "",
+          "text_size": "small"
+        }
       }
     },
     "content_for_index": [
@@ -477,8 +525,13 @@
       "klaviyo_newsletter_P7xkF6",
       "rich_text_AkraMk",
       "vof_fan3_yxWtty",
+      "rich_text_FqAhMJ",
       "video_tiU84q",
+      "rich_text_8UDyzw",
+      "rich_text_zx6KYV",
       "video_Mktfj3",
+      "rich_text_3PniiC",
+      "rich_text_dcrAxt",
       "video_X4WUAk",
       "collection_WgAV8h",
       "collection_98GRq7",
