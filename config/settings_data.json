@@ -474,7 +474,7 @@
         "settings": {
           "full_width": false,
           "section_title": "",
-          "text": "<h1>THE ONE (FEAT. PHARRELL WILLIAMS) LYRIC VIDEO</h1>",
+          "text": "<h3>THE ONE (FEAT. PHARRELL WILLIAMS) LYRIC VIDEO</h3>",
           "text_size": "medium"
         }
       },
@@ -484,7 +484,7 @@
         "settings": {
           "full_width": false,
           "section_title": "",
-          "text": "<h1>ARE YOU READY? LYRIC VIDEO</h1>",
+          "text": "<h3>ARE YOU READY? LYRIC VIDEO</h3>",
           "text_size": "medium"
         }
       },
@@ -494,7 +494,7 @@
         "settings": {
           "full_width": false,
           "section_title": "",
-          "text": "<h1>MIRACLE WORKER LYRIC VIDEO</h1>",
+          "text": "<h3>MIRACLE WORKER LYRIC VIDEO</h3>",
           "text_size": "medium"
         }
       },
