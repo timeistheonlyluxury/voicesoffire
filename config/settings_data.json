@@ -301,10 +301,10 @@
       "rich_text_AkraMk": {
         "type": "rich-text",
         "settings": {
-          "full_width": true,
+          "full_width": false,
           "section_title": "",
           "text": "",
-          "text_size": "medium"
+          "text_size": "small"
         }
       },
       "rich_text_q7aMwi": {
@@ -414,6 +414,7 @@
       },
       "vof_fan3_Nmtftd": {
         "type": "vof_fan3",
+        "disabled": true,
         "name": "VOF TITLECARD",
         "settings": {
           "desktop_image": "shopify://shop_images/VOF_TITLECARD.png",
