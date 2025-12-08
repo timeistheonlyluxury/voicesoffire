@@ -29,7 +29,15 @@
     }
   }
   audio {
-    display: none;
+    display: none !important;
+  }
+
+  audio::-webkit-media-controls {
+    display: none !important;
+  }
+
+  audio::-webkit-media-controls-enclosure {
+    display: none !important;
   }
 </style>
 <div
@@ -88,23 +96,16 @@
         <span
           id="pause"
           style="display: none;"
-          class="material-icons">pause_circle_outline</span
+          class="material-icons"
+          >pause_circle_outline</span
         >
       </span>
       <span class="next material-icons"> skip_next </span>
     </div>
-
-    {% unless shop.metafields.single_inc.whitelabel_enabled.value == true %}
-      <div class="powered-by-logo">
-        <a href="https://single.xyz" target="_blank" rel="noopener">
-          <img src="{{ 'single-logo-only.svg' | asset_url }}" loading="lazy" height="30" width="30">
-        </a>
-      </div>
-    {% endunless %}
   </div>
 </div>
 
-<script src="https://unpkg.com/wavesurfer.js@6.6.4"></script>
+<script src="https://unpkg.com/wavesurfer.js@7.11.1"></script>
 <script>
   var ignoreSilenceModeProcessed = false;
   function ignoreSilenceMode() {
@@ -141,19 +142,19 @@
       hasLoaded: false,
       initialLoad: false,
       wavesurfer: WaveSurfer.create({
-          container: '#waveform',
-          waveColor: '{{ section.settings.wave_color }}',
-          progressColor: '{{ section.settings.progress_color }}',
-          height: '60',
-          barHeight: '1',
-          barWidth: '3',
-          barRadius: 3,
-          cursorWidth: '0',
-          mediaControls: 'true',
-          responsive: 'true',
-          hideScrollbar: 'true',
-          backend: 'MediaElement'
-      }),
+        container: '#waveform',
+        waveColor: '{{ section.settings.wave_color }}',
+        progressColor: '{{ section.settings.progress_color }}',
+        height: 60,  // Changed from string to number
+        barHeight: 1,  // Changed from string to number
+        barWidth: 3,  // Changed from string to number
+        barRadius: 3,
+        cursorWidth: 0,  // Changed from string to number
+        // Remove: mediaControls: 'true',
+        // Remove: responsive: 'true',
+        hideScrollbar: true,  // Changed from string to boolean
+        // Remove: backend: 'MediaElement'
+    }),
 
       addEventListeners: function addEventListeners() {
           var self = this;
