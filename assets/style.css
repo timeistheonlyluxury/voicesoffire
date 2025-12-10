@@ -882,4 +882,16 @@ button.csm-cc-btn:hover {
       0 0 20px rgba(36, 100, 204, 0.6),
       0 0 50px rgb(32, 104, 221);
   }
+
+  #isense-cc-cookie-bar-text {
+    font-size: 12px !important;
+  }
+
+  div.cc-highlight.cc-compliance {
+    flex-direction: row-reverse !important;
+  }
+
+  div.cc-highlight.cc-compliance button.csm-cc-btn {
+    font-size: 14px !important;
+  }
 }
