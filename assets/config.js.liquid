@@ -1,0 +1,90 @@
+const CONFIG = {
+  // num frames
+  frameCount: 300,
+
+  // img file prefix
+  // ex: "anim 2_00000.png" prefix would be "anim 2_"
+  filePrefix: "anim 2_UPDATED GRADING_4K_",
+
+  // frame source (root folder)
+  imageFolder: "http://d1ib9gh6gvmo95.cloudfront.net/vof/frames",
+
+  // format configurations
+  formats: {
+    avif: {
+      folder: "AVIF", // subfolder: frames/AVIF/
+      extension: "avif",
+    },
+    fallback: {
+      folder: "PNG", // subfolder: frames/PNG/
+      extension: "png",
+    },
+  },
+
+  // if gyro perms fail
+  fallbackVideo: "{{ 'fallback.mp4' | asset_url }}",
+
+  // num digits in img name
+  // ex: 5 for "00000"
+  frameDigits: 5,
+
+  // optimization stuff:
+  // load every Nth frame first, then fill in the rest
+
+  // lower -> better quality during loading
+  // higher -> faster initial load
+  initialLoadStep: 4,
+
+  // mobile gyro sensitivity (deg of tilt = full range of animation)
+  gyroSensitivity: 30,
+
+  // player scale/bleed on mobile
+  mobileViewScale: 3.5,
+
+  // horizontal offset for player
+  mobileViewOffsetX: 8,
+
+  // DEBUG: force use of PNG instead of AVIF (useful for testing)
+  // true = always use PNG, false = auto-detect AVIF support
+  forceUsePNG: false,
+
+  // fade-to-black intensity (0-100)
+  gradientIntensity: {
+    desktop: 30,
+    mobile: 60,
+  },
+
+  // audio configuration
+  audio: {
+    file: "{{ 'vox.wav' | asset_url }}", // audio file to play
+    startFrame: 20, // frame to start audio
+    endFrame: 280, // frame to stop audio
+    fadeDuration: 0.5, // fade in/out duration in seconds
+    volume: 0.4, // audio volume (0.0 to 1.0)
+  },
+
+  // Klaviyo email config
+  klaviyo: {
+    companyId: "TuvTME", // public key
+    listId: "SgLRBz",
+  },
+
+  // Countdown timer configuration
+  countdown: {
+    // Target date and time (format: "YYYY-MM-DD HH:MM:SS")
+    targetDate: "2025-12-15 12:00:00",
+  },
+
+  // Button glow video configuration
+  buttonGlow: {
+    video: "{{ 'glow.mp4' | asset_url }}",
+    // Size multiplier relative to button (1.0 = same size, 1.2 = 20% bigger, etc.)
+    sizeMultiplier: 1,
+  },
+
+  // Fade-in configuration for canvas/video after "ARE YOU READY?" button
+  fadeIn: {
+    enabled: true,
+    duration: 0.8, // Duration in seconds
+  },
+};

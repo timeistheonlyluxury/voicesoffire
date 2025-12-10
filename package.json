@@ -1,25 +1,25 @@
 {
-  "name": "titol-theme",
-  "version": "0.1.0",
+  "name": "voicesoffire",
+  "version": "0.2.0",
   "description": "",
   "main": "./layout/theme.liquid",
   "scripts": {
-    "dev": "shopify theme dev --store=titolstaging.myshopify.com",
-    "pull": "shopify theme pull --store=titolstaging.myshopify.com --development",
-    "deploy": "yarn css && shopify theme push --store=titolstaging.myshopify.com --development"
+    "dev": "shopify theme dev --store=voicesoffire.myshopify.com",
+    "pull": "shopify theme pull --store=voicesoffire.myshopify.com --development",
+    "deploy": "npm run css && shopify theme push --store=voicesoffire.myshopify.com --development"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/timeistheonlyluxury/TITOL-Theme-Template.git"
+    "url": "git+https://github.com/timeistheonlyluxury/voicesoffire.git"
   },
   "author": "Peter Campanelli",
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/timeistheonlyluxury/TITOL-Theme-Template/issues"
+    "url": "https://github.com/timeistheonlyluxury/voicesoffire/issues"
   },
-  "homepage": "https://github.com/timeistheonlyluxury/TITOL-Theme-Template#readme",
+  "homepage": "https://github.com/timeistheonlyluxury/voicesoffire#readme",
   "dependencies": {
-    "@shopify/prettier-plugin-liquid": "^1.9.3",
-    "prettier": "^3.5.3"
+    "@shopify/prettier-plugin-liquid": "^1.10.0",
+    "prettier": "^3.7.4"
   }
 }
