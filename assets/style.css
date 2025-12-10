@@ -749,6 +749,9 @@ button {
 
 button.csm-cc-btn {
   color: white !important;
+  font-weight: 800 !important;
+  border: 3px solid #2464cc !important;
+  border-radius: 0px !important;
 }
 
 button.csm-cc-btn:hover {
