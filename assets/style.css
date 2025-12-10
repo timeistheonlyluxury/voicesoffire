@@ -892,7 +892,7 @@ button.csm-cc-btn:hover {
   }
 
   div.cc-highlight.cc-compliance {
-    flex-direction: row-reverse !important;
+    flex-direction: row !important;
   }
 
   div.cc-highlight.cc-compliance button.csm-cc-btn {
