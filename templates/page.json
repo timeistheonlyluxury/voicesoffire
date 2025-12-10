@@ -1,4 +1,5 @@
 {
+  "layout": "page",
   "sections": {
     "main": {
       "type": "main-page"
