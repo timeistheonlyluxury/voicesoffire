@@ -1,0 +1,32 @@
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>{{ shop.name }}</title>
+
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+    <link rel="preconnect" href="https://monorail-edge.shopifysvc.com">
+
+    <link rel="stylesheet" href="{{ 'style.css' | asset_url }}">
+
+    {%- if settings.favicon != blank -%}
+      <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+    {%- endif -%}
+
+    {% render 'gcm-integration-script' %}
+
+    {% render 'social-meta-tags' %}
+
+    {{ content_for_header }}
+  </head>
+
+  <body>
+    {{ content_for_layout }}
+
+    {% render 'kla-integration-script' %}
+  </body>
+</html>

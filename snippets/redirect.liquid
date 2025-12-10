@@ -1,0 +1,7 @@
+{% if redirect_location == blank %}
+  {% assign redirect_location = routes.root_url %}
+{% endif %}
+
+<script type="text/javascript">
+  window.location = '{{ redirect_location }}';
+</script>

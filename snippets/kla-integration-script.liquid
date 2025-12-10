@@ -1,14 +1,17 @@
 <script>
   function checkGDPRKlaviyo() {
-    if (window.isenseGDPR !== undefined && window.isenseGDPR.Cookies.get('cookieconsent_preferences_disabled') !== undefined) {
+    if (
+      window.isenseGDPR !== undefined &&
+      window.isenseGDPR.Cookies.get('cookieconsent_preferences_disabled') !== undefined
+    ) {
       let cookie = window.isenseGDPR.Cookies.get('cookieconsent_preferences_disabled');
       if (cookie.indexOf('marketing') == -1) {
-        document.cookie = "__kla_off=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        document.cookie = '__kla_off=;expires=Thu, 01 Jan 1970 00:00:00 GMT';
       } else {
-        document.cookie = "__kla_off=true"; 
+        document.cookie = '__kla_off=true';
       }
     } else {
-      setTimeout(function() {
+      setTimeout(function () {
         checkGDPRKlaviyo();
       }, 500);
     }
@@ -17,8 +20,13 @@
   checkGDPRKlaviyo();
 
   window.addEventListener('click', function (e) {
-    if(e.target && (e.target.className == 'cc-btn cc-btn-accept-all' || e.target.className == 'cc-btn cc-allow' || e.target.className == 'cc-btn cc-btn-accept-selected')){
+    if (
+      e.target &&
+      (e.target.className == 'cc-btn cc-btn-accept-all' ||
+        e.target.className == 'cc-btn cc-allow' ||
+        e.target.className == 'cc-btn cc-btn-accept-selected')
+    ) {
       checkGDPRKlaviyo();
     }
   });
-  </script>
+</script>
