@@ -1,1 +1,12 @@
-{%- render 'redirect' -%}
+{% comment %}
+  The contents of the collection.liquid template can be found in /sections/collection-template.liquid
+{% endcomment %}
+{% section 'collection-template' %}
+
+{% comment %}
+  {% assign redirect_location = "/" %}
+
+  <script type="text/javascript">
+    window.location = "{{ redirect_location }}";
+  </script>
+{% endcomment %}
