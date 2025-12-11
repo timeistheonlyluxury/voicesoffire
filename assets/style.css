@@ -885,7 +885,8 @@ button.csm-cc-btn:hover {
 
   #isense-cc-cookie-bar-text {
     font-size: 12px !important;
-    white-space: nowrap !important;
+    /* white-space: nowrap !important; */
+    text-wrap: pretty !important;
   }
 
   a.isense-cc-link {
