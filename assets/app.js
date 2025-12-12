@@ -81,6 +81,8 @@ class ImgPlayer {
         (this.isMobile || this.isAudioPlaying)
       ) {
         this.audio.currentTime = 0;
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        const audioCtx = new AudioContext();
         this.audio.load();
         this.audio
           .play()
