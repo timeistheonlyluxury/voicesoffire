@@ -81,6 +81,7 @@ class ImgPlayer {
         (this.isMobile || this.isAudioPlaying)
       ) {
         this.audio.currentTime = 0;
+        this.audio.load();
         this.audio
           .play()
           .catch((err) => console.error("Gapless loop restart failed:", err));
