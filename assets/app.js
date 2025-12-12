@@ -72,7 +72,8 @@ class ImgPlayer {
     this.audio.load();
 
     this.audio.addEventListener("timeupdate", () => {
-      const buffer = 0.25; // Buffer time before end to restart (in seconds)
+      // Different buffer times for mobile vs desktop (mobile needs more buffer for reliability)
+      const buffer = this.isMobile ? 0.5 : 0.25; // Buffer time before end to restart (in seconds)
       // Only loop if audio should be playing (not paused and not fading out)
       if (
         this.audio.currentTime > this.audio.duration - buffer &&
