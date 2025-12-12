@@ -28,6 +28,13 @@ class ImgPlayer {
     this.isFading = false;
     this.wasPlayingBeforeHidden = false;
 
+    // Web Audio API for mobile (gapless looping)
+    this.audioContext = null;
+    this.audioBuffer = null;
+    this.audioSource = null;
+    this.gainNode = null;
+    this.useWebAudio = this.isMobile;
+
     // Fade-in state
     this.fadeInApplied = false;
 
@@ -56,30 +63,50 @@ class ImgPlayer {
       } else {
         // Tab is visible again - resume audio if it was playing
         if (this.wasPlayingBeforeHidden && this.audioReady) {
-          this.audio
-            .play()
-            .catch((err) => console.error("Resume audio failed:", err));
+          if (this.useWebAudio) {
+            this.playWebAudio();
+          } else {
+            this.audio
+              .play()
+              .catch((err) => console.error("Resume audio failed:", err));
+          }
           this.wasPlayingBeforeHidden = false;
         }
       }
     });
   }
 
-  setupAudio() {
-    this.audio.src = CONFIG.audio.file;
-    this.audio.volume = this.isMobile ? CONFIG.audio.volume : 0;
-    this.audio.muted = this.isMobile; // Start muted on mobile
-    this.audio.load();
+  async setupAudio() {
+    if (this.useWebAudio) {
+      // Mobile: Use Web Audio API for gapless looping
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        this.audioContext = new AudioContext();
+        this.gainNode = this.audioContext.createGain();
+        this.gainNode.connect(this.audioContext.destination);
+        this.gainNode.gain.value = 0; // Start silent
 
-    // For mobile Safari, use 'ended' event for more reliable looping
-    if (this.isMobile) {
-      this.audio.addEventListener("ended", () => {
-        // Immediately restart without load() to minimize gap
-        this.audio.currentTime = 0;
-        if (this.isAudioPlaying || !this.audio.muted) {
-          this.audio
-            .play()
-            .catch((err) => console.error("Mobile loop restart failed:", err));
+        // Load and decode audio
+        const response = await fetch(CONFIG.audio.file);
+        const arrayBuffer = await response.arrayBuffer();
+        this.audioBuffer = await this.audioContext.decodeAudioData(arrayBuffer);
+        
+        console.log("Web Audio API initialized for gapless looping");
+      } catch (error) {
+        console.error("Web Audio API setup failed, falling back to HTML5 audio:", error);
+        this.useWebAudio = false;
+      }
+    }
+
+    if (!this.useWebAudio) {
+      // Desktop or fallback: Use HTML5 Audio element
+      this.audio.src = CONFIG.audio.file;
+      this.audio.volume = 0;
+      this.audio.load();
+
+      // Desktop: use timeupdate with buffer for smoother transition
+      this.audio.addEventListener("timeupdate", () => {
+        const buffer = 0.25; // Buffer time before end to restart (in seconds;
         }
       });
     } else {
@@ -248,25 +275,20 @@ class ImgPlayer {
 
   enableAudio() {
     if (!this.audioReady) {
-      this.audioReady = true;
-      console.log("Audio enabled and ready");
-    }
-  }
-
-  fadeInAudio() {
-    if (this.isFading) return;
-
-    if (!this.isAudioPlaying) {
-      this.audio
-        .play()
-        .catch((err) => console.error("Audio play failed:", err));
+      if (this.useWebAudio) {
+        // Start Web Audio playback with looping
+        this.playWebAudio();
+      } else {
+        this.audio
+          .play()
+          .catch((err) => console.error("Audio play failed:", err));
+      }
       this.isAudioPlaying = true;
     }
 
-    // Mobile: use direct unmute (iOS Safari doesn't support volume changes reliably)
-    if (this.isMobile) {
-      this.audio.muted = false;
-      this.audio.volume = CONFIG.audio.volume;
+    // Mobile with Web Audio: use direct volume change
+    if (this.useWebAudio) {
+      this.gainNode.gain.value = CONFIG.audio.volume;
       return;
     }
 
@@ -292,6 +314,35 @@ class ImgPlayer {
 
     fade();
   }
+ with Web Audio: use direct volume change (keep playing for quick restart)
+    if (this.useWebAudio) {
+      this.gainNode.gain.value = 0
+    // Resume AudioContext if suspended (iOS requirement)
+    if (this.audioContext.state === 'suspended') {
+      this.audioContext.resume();
+    }
+
+    // Stop existing source if any
+    if (this.audioSource) {
+      this.audioSource.stop();
+    }
+
+    // Create new source
+    this.audioSource = this.audioContext.createBufferSource();
+    this.audioSource.buffer = this.audioBuffer;
+    this.audioSource.loop = true; // Enable gapless looping
+    this.audioSource.connect(this.gainNode);
+    this.audioSource.start(0s.audio.volume = startVolume + (targetVolume - startVolume) * progress;
+
+      if (progress < 1) {
+        requestAnimationFrame(fade);
+      } else {
+        this.isFading = false;
+      }
+    };
+
+    fade();
+  }
 
   fadeOutAudio() {
     if (this.isFading) return;
@@ -302,9 +353,9 @@ class ImgPlayer {
       this.audio.muted = true;
       return;
     }
-
-    // Desktop: use fade
-    this.isFading = true;
+Check if audio should be audible
+    const shouldBeAudible = this.useWebAudio
+      ? this.gainNode.gain.value > 0
     const startVolume = this.audio.volume;
     const targetVolume = 0;
     const duration = CONFIG.audio.fadeDuration * 1000; // Convert to ms
