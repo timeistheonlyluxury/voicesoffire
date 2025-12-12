@@ -90,10 +90,13 @@ class ImgPlayer {
         const response = await fetch(CONFIG.audio.file);
         const arrayBuffer = await response.arrayBuffer();
         this.audioBuffer = await this.audioContext.decodeAudioData(arrayBuffer);
-        
+
         console.log("Web Audio API initialized for gapless looping");
       } catch (error) {
-        console.error("Web Audio API setup failed, falling back to HTML5 audio:", error);
+        console.error(
+          "Web Audio API setup failed, falling back to HTML5 audio:",
+          error
+        );
         this.useWebAudio = false;
       }
     }
@@ -269,6 +272,15 @@ class ImgPlayer {
 
   enableAudio() {
     if (!this.audioReady) {
+      this.audioReady = true;
+      console.log("Audio enabled and ready");
+    }
+  }
+
+  fadeInAudio() {
+    if (this.isFading) return;
+
+    if (!this.isAudioPlaying) {
       if (this.useWebAudio) {
         // Start Web Audio playback with looping
         this.playWebAudio();
@@ -308,11 +320,12 @@ class ImgPlayer {
 
     fade();
   }
- with Web Audio: use direct volume change (keep playing for quick restart)
-    if (this.useWebAudio) {
-      this.gainNode.gain.value = 0
+
+  playWebAudio() {
+    if (!this.audioBuffer || !this.audioContext) return;
+
     // Resume AudioContext if suspended (iOS requirement)
-    if (this.audioContext.state === 'suspended') {
+    if (this.audioContext.state === "suspended") {
       this.audioContext.resume();
     }
 
@@ -326,30 +339,20 @@ class ImgPlayer {
     this.audioSource.buffer = this.audioBuffer;
     this.audioSource.loop = true; // Enable gapless looping
     this.audioSource.connect(this.gainNode);
-    this.audioSource.start(0s.audio.volume = startVolume + (targetVolume - startVolume) * progress;
-
-      if (progress < 1) {
-        requestAnimationFrame(fade);
-      } else {
-        this.isFading = false;
-      }
-    };
-
-    fade();
+    this.audioSource.start(0);
   }
 
   fadeOutAudio() {
     if (this.isFading) return;
 
-    // Mobile: use direct mute (iOS Safari doesn't support volume changes reliably)
-    // Keep playing but muted so it can quickly unmute when back in range
-    if (this.isMobile) {
-      this.audio.muted = true;
+    // Mobile with Web Audio: use direct volume change (keep playing for quick restart)
+    if (this.useWebAudio) {
+      this.gainNode.gain.value = 0;
       return;
     }
-Check if audio should be audible
-    const shouldBeAudible = this.useWebAudio
-      ? this.gainNode.gain.value > 0
+
+    // Desktop: use fade
+    this.isFading = true;
     const startVolume = this.audio.volume;
     const targetVolume = 0;
     const duration = CONFIG.audio.fadeDuration * 1000; // Convert to ms
@@ -380,9 +383,9 @@ Check if audio should be audible
       this.currentFrame >= CONFIG.audio.startFrame &&
       this.currentFrame <= CONFIG.audio.endFrame;
 
-    // On mobile, check muted state instead of isAudioPlaying (since audio stays playing when muted)
-    const shouldBeAudible = this.isMobile
-      ? !this.audio.muted
+    // Check if audio should be audible
+    const shouldBeAudible = this.useWebAudio
+      ? this.gainNode.gain.value > 0
       : this.isAudioPlaying;
 
     if (inRange && !shouldBeAudible) {
