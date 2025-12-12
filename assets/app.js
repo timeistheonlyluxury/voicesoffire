@@ -106,12 +106,6 @@ class ImgPlayer {
 
       // Desktop: use timeupdate with buffer for smoother transition
       this.audio.addEventListener("timeupdate", () => {
-        const buffer = 0.25; // Buffer time before end to restart (in seconds;
-        }
-      });
-    } else {
-      // Desktop: use timeupdate with buffer for smoother transition
-      this.audio.addEventListener("timeupdate", () => {
         const buffer = 0.25; // Buffer time before end to restart (in seconds)
         // Only loop if audio should be playing (not paused and not fading out)
         if (
