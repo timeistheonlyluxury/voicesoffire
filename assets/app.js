@@ -56,8 +56,15 @@ class ImgPlayer {
     document.addEventListener("visibilitychange", () => {
       if (document.hidden) {
         // Tab is hidden - pause audio
-        if (this.isAudioPlaying && !this.audio.paused) {
-          this.audio.pause();
+        if (this.isAudioPlaying) {
+          if (this.useWebAudio) {
+            if (this.audioSource) {
+              this.audioSource.stop();
+              this.audioSource = null;
+            }
+          } else if (!this.audio.paused) {
+            this.audio.pause();
+          }
           this.wasPlayingBeforeHidden = true;
         }
       } else {
@@ -274,6 +281,14 @@ class ImgPlayer {
     if (!this.audioReady) {
       this.audioReady = true;
       console.log("Audio enabled and ready");
+
+      // On mobile with Web Audio, start playback immediately with user gesture
+      // The audio will be silent until frame is in range
+      if (this.useWebAudio && this.audioBuffer) {
+        console.log("Starting Web Audio playback with user gesture");
+        this.playWebAudio();
+        this.isAudioPlaying = true;
+      }
     }
   }
 
@@ -322,16 +337,24 @@ class ImgPlayer {
   }
 
   playWebAudio() {
-    if (!this.audioBuffer || !this.audioContext) return;
+    if (!this.audioBuffer || !this.audioContext) {
+      console.log("Cannot play Web Audio: buffer or context missing");
+      return;
+    }
 
     // Resume AudioContext if suspended (iOS requirement)
     if (this.audioContext.state === "suspended") {
+      console.log("Resuming suspended AudioContext");
       this.audioContext.resume();
     }
 
     // Stop existing source if any
     if (this.audioSource) {
-      this.audioSource.stop();
+      try {
+        this.audioSource.stop();
+      } catch (e) {
+        // Source may already be stopped
+      }
     }
 
     // Create new source
@@ -340,6 +363,7 @@ class ImgPlayer {
     this.audioSource.loop = true; // Enable gapless looping
     this.audioSource.connect(this.gainNode);
     this.audioSource.start(0);
+    console.log("Web Audio source started, gain:", this.gainNode.gain.value);
   }
 
   fadeOutAudio() {
