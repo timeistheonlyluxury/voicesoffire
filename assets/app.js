@@ -71,24 +71,34 @@ class ImgPlayer {
     this.audio.muted = this.isMobile; // Start muted on mobile
     this.audio.load();
 
-    this.audio.addEventListener("timeupdate", () => {
-      // Different buffer times for mobile vs desktop (mobile needs more buffer for reliability)
-      const buffer = this.isMobile ? 0.6 : 0.25; // Buffer time before end to restart (in seconds)
-      // Only loop if audio should be playing (not paused and not fading out)
-      if (
-        this.audio.currentTime > this.audio.duration - buffer &&
-        !this.audio.paused &&
-        (this.isMobile || this.isAudioPlaying)
-      ) {
+    // For mobile Safari, use 'ended' event for more reliable looping
+    if (this.isMobile) {
+      this.audio.addEventListener("ended", () => {
+        // Immediately restart without load() to minimize gap
         this.audio.currentTime = 0;
-        const AudioContext = window.AudioContext || window.webkitAudioContext;
-        const audioCtx = new AudioContext();
-        this.audio.load();
-        this.audio
-          .play()
-          .catch((err) => console.error("Gapless loop restart failed:", err));
-      }
-    });
+        if (this.isAudioPlaying || !this.audio.muted) {
+          this.audio
+            .play()
+            .catch((err) => console.error("Mobile loop restart failed:", err));
+        }
+      });
+    } else {
+      // Desktop: use timeupdate with buffer for smoother transition
+      this.audio.addEventListener("timeupdate", () => {
+        const buffer = 0.25; // Buffer time before end to restart (in seconds)
+        // Only loop if audio should be playing (not paused and not fading out)
+        if (
+          this.audio.currentTime > this.audio.duration - buffer &&
+          !this.audio.paused &&
+          this.isAudioPlaying
+        ) {
+          this.audio.currentTime = 0;
+          this.audio
+            .play()
+            .catch((err) => console.error("Desktop loop restart failed:", err));
+        }
+      });
+    }
   }
 
   setupGradient() {
